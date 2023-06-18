@@ -11,15 +11,15 @@ all was setup on ArcoLinux
 
 ## Contents
 - zsh config
-- swaybg
-- starship
-- Thunar
+- starship config
+- Thunar config
 - hyprland config
 - waybar config
 - Firefox addon ( working on that...)
 - cava config
 - rofi config
 - ranger config
+- dependences
 
 ## Packages
 ```bash
