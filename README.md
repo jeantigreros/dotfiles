@@ -24,7 +24,7 @@ All were setup on ArcoLinux, the font used is: Nerd Fonts (complete pack)
 
 ## Packages
 ```bash
-sudo pacman -S zsh firefox starship thunar hyprland waybar cava git discord rofi ranger swaybg
+sudo pacman -S zsh firefox starship thunar hyprland waybar cava git discord rofi ranger swaybg variety
 yay -S cava visual-studio-code-bin
 ```
 
