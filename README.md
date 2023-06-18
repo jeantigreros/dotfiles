@@ -7,12 +7,12 @@ my personal dotfiles, proceed with caution!, this are my configs for my pc/lapto
 
 all was setup on ArcoLinux
 
+
 ## [Wallpapers](https://github.com/jeantigreros/dotfiles/tree/50bd571c740f591466165548e66222e18b5147dd/wallpapers)
 
 ## Contents
 - zsh config
 - starship config
-- Thunar config
 - hyprland config
 - waybar config
 - Firefox addon ( working on that...)
