@@ -11,6 +11,7 @@ all was setup on ArcoLinux
 
 ## Contents
 - zsh config
+- swaybg
 - starship
 - Thunar
 - hyprland config
@@ -22,7 +23,7 @@ all was setup on ArcoLinux
 
 ## Packages
 ```bash
-sudo pacman -S zsh firefox starship thunar hyprland waybar cava git discord rofi ranger
+sudo pacman -S zsh firefox starship thunar hyprland waybar cava git discord rofi ranger swaybg
 yay -S cava visual-studio-code-bin
 ```
 ### **Setup dotfiles** \
