@@ -5,8 +5,7 @@ my personal dotfiles, proceed with caution!, this are my configs for my pc/lapto
 
 ## INFORMATION
 
-All were setup on ArcoLinux
-The font used is: Nerd Fonts (complete pack)
+All were setup on ArcoLinux, the font used is: Nerd Fonts (complete pack)
 
 
 
