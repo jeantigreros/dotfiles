@@ -5,7 +5,9 @@ my personal dotfiles, proceed with caution!, this are my configs for my pc/lapto
 
 ## INFORMATION
 
-all was setup on ArcoLinux
+All were setup on ArcoLinux
+The font used is: Nerd Fonts (complete pack)
+
 
 
 ## [Wallpapers](https://github.com/jeantigreros/dotfiles/tree/50bd571c740f591466165548e66222e18b5147dd/wallpapers)
