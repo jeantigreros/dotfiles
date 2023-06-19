@@ -40,7 +40,7 @@ fc-cache -rv
 ## some links
 
 * **Window Manager** • [Hyprland ](https://github.com/hyprwm/Hyprland)
-* **Shell** • [Zsh ](https://www.zsh.org) [starship](https://github.com/starship/starship)
+* **Shell** • [Zsh ](https://www.zsh.org) with [starship](https://github.com/starship/starship)
 * **Terminal** • [WezTerm ](https://github.com/wez/wezterm) 
 * **Panel** • [Waybar ](https://aur.archlinux.org/packages/waybar-hyprland-git) 
 * **Notify Daemon** • [Dunst ](https://github.com/dunst-project/dunst)
