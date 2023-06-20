@@ -5,7 +5,7 @@ my personal dotfiles, proceed with caution!, this are my configs for my pc/lapto
 
 ## INFORMATION
 
-All were setup on ArcoLinux, i use wayland, idk how it work in other desktop/distro environment.
+All were setup on ArcoLinux, i use wayland, idk how it work in other desktop/distro environment, none of the Wallpapers are mine, i just grabbed them form discord/internet
 
 ### [Wallpapers](https://github.com/jeantigreros/dotfiles/tree/50bd571c740f591466165548e66222e18b5147dd/wallpapers)
 
