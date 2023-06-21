@@ -17,6 +17,12 @@ xdg-desktop-portal-hyprland-git qt5-wayland qt6-wayland
 waybar-hyprland-git zsh firefox starship thunar cava git
 discord rofi ranger swaybg variety
 ```
+- Cloning the repository
+```sh
+cd ~/ && git clone https://github.com/jeantigreros/dotfiles.git
+cd ~/ && mkdir .scripts && cd .scripts
+mv ~/dotfiles/scripts/screenshot ~/.scripts
+```
 
 **Extras*
 ```sh
