@@ -28,6 +28,8 @@ mv ~/dotfiles/scripts/screenshot ~/.scripts
 ```sh
 # themes
 paru -S catppuccin-gtk-theme-mocha catppuccin-cursors-mocha catppuccin-mocha-grub-theme-git nwg-look
+# Music-player
+paru -S youtube-music-bin
 ```
 
 #### As fonts i'm  using Cartographh CF
@@ -53,6 +55,7 @@ fc-cache -rv
 * **Notify Daemon** • [Dunst ](https://github.com/dunst-project/dunst)
 * **Launcher** • [Rofi ](https://github.com/davatorium/rofi) 
 * **File Manager** • [Ranger ](https://github.com/ranger/ranger)
+* **Music Player** • [Youtube Music App ](https://github.com/th-ch/youtube-music)
 
 ### Keybind
 
