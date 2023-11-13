@@ -4,12 +4,11 @@
 # common operations
  - Super          Return   *term* (`WezTerm`)
  - Super          q        *quit* (kill focused window)
- - Super   Shift  q        *quit* (kill active session)
  - Super          d        *show app menu* (`rofi`)
  
 # application shortcuts
- - Super   Shift  Return   *file manager* (`thunar`)
- - Super   F1              *browser* (`firefox`)
+ - Super          T   *file manager* (`thunar`)
+ - Super   Shift  F   *browser* (`firefox`)
 
 # container layout
  - Super   left mouse button   *move window*
