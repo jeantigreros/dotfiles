@@ -15,13 +15,11 @@ All were setup on ArcoLinux, i use wayland, idk how it work in other desktop/dis
 paru -S hyprland-git polkit-kde-agent dunst rofi
 xdg-desktop-portal-hyprland-git qt5-wayland qt6-wayland
 waybar-hyprland-git zsh firefox starship thunar cava git
-discord rofi ranger swaybg variety
+discord rofi ranger variety hyprshot
 ```
 - Cloning the repository
 ```sh
 cd ~/ && git clone https://github.com/jeantigreros/dotfiles.git
-cd ~/ && mkdir .scripts && cd .scripts
-mv ~/dotfiles/scripts/screenshot ~/.scripts
 ```
 
 **Extras*
