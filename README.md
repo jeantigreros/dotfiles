@@ -15,7 +15,7 @@ All were setup on ArcoLinux, i use wayland, idk how it work in other desktop/dis
 paru -S hyprland-git polkit-kde-agent dunst rofi
 xdg-desktop-portal-hyprland-git qt5-wayland qt6-wayland
 waybar-hyprland-git zsh firefox starship thunar cava git
-discord rofi ranger variety hyprshot nomacs nwg-look
+discord rofi ranger variety hyprshot nomacs
 ```
 - Cloning the repository
 ```sh
