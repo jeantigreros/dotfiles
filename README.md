@@ -5,7 +5,7 @@ my personal dotfiles, proceed with caution!, this are my configs for my pc/lapto
 
 ## INFORMATION
 
-Hyprland as Wayland tiling compositor, 
+I'm using Hyprland as Wayland tiling compositor
 
 ### [Wallpapers](https://github.com/jeantigreros/dotfiles/tree/50bd571c740f591466165548e66222e18b5147dd/wallpapers)
 > also here are some of cool wallpapers (https://github.com/iamdevnitesh/nord-wallpapers/tree/main/wallpapers)
@@ -49,10 +49,10 @@ fc-cache -rv
 * **Window Manager** • [Hyprland ](https://github.com/hyprwm/Hyprland)
 * **Shell** • [Zsh ](https://www.zsh.org) with [starship](https://github.com/starship/starship)
 * **Terminal** • [WezTerm ](https://github.com/wez/wezterm) 
-* **Panel** • [Waybar ](https://aur.archlinux.org/packages/waybar-hyprland-git) 
+* **Panel** • [Waybar](https://aur.archlinux.org/packages/waybar-hyprland-git) 
 * **Notify Daemon** • [Dunst ](https://github.com/dunst-project/dunst)
 * **Launcher** • [Rofi ](https://github.com/davatorium/rofi) 
-* **File Manager** • [Ranger ](https://github.com/ranger/ranger)
+* **File Manager** • [Thunar](https://github.com/xfce-mirror/thunar)
 * **Music Player** • [Youtube Music App ](https://github.com/th-ch/youtube-music)
 
 ### Keybind
