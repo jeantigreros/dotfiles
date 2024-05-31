@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles (DEPRECATED)
 my personal dotfiles, proceed with caution!, this are my configs for my pc/laptop so careful.
 
 ![20230617_21h08m29s_grim](https://github.com/jeantigreros/dotfiles/assets/85091862/58caad8c-39fb-443d-b966-c9f3856799d3)
