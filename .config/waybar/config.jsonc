@@ -129,7 +129,7 @@
   "children-class": "not-memory",
   "transition-left-to-right": false
 },
-"modules": ["custom/arrow","network"]
+"modules": ["custom/arrow","network","temperature","backlight"]
 },
 
   "temperature" : {
@@ -145,5 +145,12 @@
     },
     "format": "{capacity}% {icon}",
     "format-icons": [" "," "," "," "," "]
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+      "format": "{percent}% {icon}",
+        "format-icons": ["󰃚 ","󰃛","󰃜"]
     }
-  }
+
+    }

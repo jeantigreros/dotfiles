@@ -6,4 +6,6 @@ font = mononoki
 prompt = starship
 wallpaper = hyprpaper
 screenshot = hyprshot
-
+sound controller = pavucontrol
+dark theme = qt6ct
+brightness control = brightnessctl
