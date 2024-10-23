@@ -4,3 +4,6 @@ application runner = rofi
 bar = waybar - font: ubuntu nerd mono
 font = mononoki
 prompt = starship
+wallpaper = hyprpaper
+screenshot = hyprshot
+

@@ -8,15 +8,15 @@
     "margin-right": 0,
     "modules-left": ["hyprland/workspaces", "custom/playerctl", "custom/playerlabel"],
     "modules-center": ["cpu", "memory", "disk"],
-    "modules-right": ["tray", "wireplumber","battery","group/temp","network","clock","custom/power"],
+    "modules-right": ["tray","group/temp","wireplumber","battery","clock","custom/power"],
     // Modules configuration
 	"clock": {
-		"format": "   {:%H:%M}",
+		"format": "    {:%H:%M}",
 		"tooltip": "true",
         	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         	"format-alt": " {:%d/%m} "
 	},
-	
+
 
 	"hyprland/workspaces": {
         "active-only": false,
@@ -27,8 +27,8 @@
 		"format": "{icon}",
 		"on-click": "activate",
 		"format-icons": {
-			"urgent": "  ",
-			"active": "  ",
+			"urgent": " ",
+			"active": " ",
 			"default": " 󰧞 ",
     "sort-by-number": true
     }
@@ -63,30 +63,30 @@
     },
 
   "memory": {
-    "format": "󰍛 {}%",
-    "format-alt": "󰍛 {used}/{total} GiB",
+    "format": "󰍛  {}%",
+    "format-alt": "󰍛  {used}/{total} GiB",
     "interval": 5
   },
 
   "cpu": {
-    "format": "󰻠 {usage}%",
-    "format-alt": "󰻠 {avg_frequency} GHz",
+    "format": "󰻠  {usage}%",
+    "format-alt": "󰻠  {avg_frequency} GHz",
     "interval": 5
   },
 
   "disk": {
-    "format": "󰋊 {free}",
-    "format-alt": "󰋊 {free}/{total} GiB",
+    "format": "󰋊  {free}",
+    "format-alt": "󰋊  {free}/{total} GiB",
     "interval": 5,
     "path": "/home/"
   },
-	
+
 	"network": {
-        	"format-wifi": " 󰤨 ",
+        	"format-wifi": " 󰤨  ",
         	"format-ethernet": " 󰈀  Wired",
         	"format-linked": " {ifname} (No IP)",
-        	"format-disconnected": "󰤭",
-        	"format-alt": "󰤨 {ipaddr}/{cidr}",
+        	"format-disconnected": "󰤭 ",
+        	"format-alt": "󰤨  {ipaddr}/{cidr}",
           "tooltip-format": "{essid}",
           "on-click-right": "nm-connection-editor"
   },
@@ -117,7 +117,7 @@
   },
 
   "custom/arrow": {
-    "format": " ",
+    "format": "  ",
   "interval": 86400,
   "tooltip": true
 },
@@ -129,7 +129,7 @@
   "children-class": "not-memory",
   "transition-left-to-right": false
 },
-"modules": ["custom/arrow","temperature"]
+"modules": ["custom/arrow","network"]
 },
 
   "temperature" : {
@@ -138,7 +138,7 @@
   },
 
   "battery": {
-    "bat": "BAT0",
+    "bat": "BAT1",
     "states": {
         "warning": 30,
         "critical": 20
@@ -147,8 +147,3 @@
     "format-icons": [" "," "," "," "," "]
     }
   }
-
-  }
-
-
-}
