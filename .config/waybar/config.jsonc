@@ -11,10 +11,10 @@
     "modules-right": ["tray","group/temp","wireplumber","battery","clock","custom/power"],
     // Modules configuration
 	"clock": {
-		"format": "    {:%H:%M}",
+		"format": "   {:%H:%M}",
 		"tooltip": "true",
         	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        	"format-alt": " {:%d/%m} "
+        	"format-alt": "  {:%d/%m} "
 	},
 
 
@@ -30,7 +30,7 @@
 			"urgent": " ",
 			"active": " ",
 			"default": " 󰧞 ",
-    "sort-by-number": true
+    "sort-by-number": false
     }
     },
 
@@ -97,7 +97,7 @@
 	},
 
   "wireplumber": {
-		"format": "{volume}% {icon}",
+		"format": " {icon}  {volume}% ",
             "format-muted": " 󰟎 ",
 		"format-icons": {
 			"default": [" 󰋋 "]
@@ -139,17 +139,18 @@
 
   "battery": {
     "bat": "BAT1",
+    "interval": 45,
     "states": {
         "warning": 30,
         "critical": 20
     },
-    "format": "{capacity}% {icon}",
+    "format": " {icon}  {capacity}% ",
     "format-icons": [" "," "," "," "," "]
     },
 
     "backlight": {
         "device": "intel_backlight",
-      "format": "{percent}% {icon}",
+      "format": " {icon} {percent}%",
         "format-icons": ["󰃚 ","󰃛","󰃜"]
     }
 
