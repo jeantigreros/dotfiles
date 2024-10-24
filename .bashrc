@@ -26,3 +26,4 @@ function ccp() {
 function cca() {
 	config add "$*"
 }
+. "$HOME/.cargo/env"
