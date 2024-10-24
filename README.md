@@ -11,6 +11,7 @@ screenshot = hyprshot
 sound controller = pavucontrol
 dark theme = qt6ct
 brightness control = brightnessctl
+network discovery = networkmanager
 
 # installation - arch
 1. first install yay, then
