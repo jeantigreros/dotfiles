@@ -17,7 +17,7 @@
 1. package manager = yay
 2. notifications = dunst
 3. application runner = rofi
-4. bar = waybar - font: ubuntu nerd mono
+4. bar = waybar - font: mononoki
 5. font = mononoki
 6. prompt = starship
 7. wallpaper = hyprpaper
@@ -29,7 +29,8 @@
 13. pdf viewer = zathura, zathura-pdf-mupdf
 14. utility for manual = man
 15. sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
- 
+16. video and music player = vlc  
+17. fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
 **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
