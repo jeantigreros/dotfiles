@@ -1,17 +1,36 @@
-# My dotfiles :]
+```
+ __  __            _                                         
+|  \/  |_   _     / \__      _____  ___  ___  _ __ ___   ___ 
+| |\/| | | | |   / _ \ \ /\ / / _ \/ __|/ _ \| '_ ` _ \ / _ \
+| |  | | |_| |  / ___ \ V  V /  __/\__ \ (_) | | | | | |  __/
+|_|  |_|\__, | /_/   \_\_/\_/ \___||___/\___/|_| |_| |_|\___|
+        |___/                                                
+ ____        _    __ _ _           _ 
+|  _ \  ___ | |_ / _(_) | ___  ___| |
+| | | |/ _ \| __| |_| | |/ _ \/ __| |
+| |_| | (_) | |_|  _| | |  __/\__ \_|
+|____/ \___/ \__|_| |_|_|\___||___(_)
+                                     
+```
+# Packages
 
-package manager = yay
-notifications = dunst
-application runner = rofi
-bar = waybar - font: ubuntu nerd mono
-font = mononoki
-prompt = starship
-wallpaper = hyprpaper
-screenshot = hyprshot
-sound controller = pavucontrol
-dark theme = qt6ct
-brightness control = brightnessctl
-network discovery = networkmanager
+1. package manager = yay
+2. notifications = dunst
+3. application runner = rofi
+4. bar = waybar - font: ubuntu nerd mono
+5. font = mononoki
+6. prompt = starship
+7. wallpaper = hyprpaper
+8. screenshot = hyprshot
+9. sound controller = pavucontrol
+10. dark theme = qt6ct
+11. brightness control = brightnessctl
+12. network discovery = networkmanager
+13. pdf viewer = zathura, zathura-pdf-mupdf
+14. utility for manual = man
+15. sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
+ 
+**if arch then yay reflector :] i'm not asking**
 
 # installation - arch
 1. first install yay, then
@@ -64,3 +83,16 @@ config checkout
 config config local --local status.showUntrackedFiles no
 ```
 9. you're done :]
+
+---
+
+Personal mod
+
+login.conf -> handlelid suspend
+
+if ssd then activate trim
+
+# Postdata
+
+i used figlet for the fancy text
+
