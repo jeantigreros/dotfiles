@@ -24,19 +24,23 @@
 8. screenshot = hyprshot
 9. sound controller = pavucontrol
 10. dark theme = qt6ct
-11. brightness control = brightnessctl
-12. network discovery = networkmanager
-13. pdf viewer = zathura, zathura-pdf-mupdf
-14. utility for manual = man
-15. sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
-16. video and music player = mpv 
-17. fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
-**if arch then yay reflector :] i'm not asking**
+11. network discovery = networkmanager
+12. pdf viewer = zathura, zathura-pdf-mupdf
+13. utility for manual = man
+14. sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
+15. video and music player = mpv 
+16. fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
+
+- **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
 1. first install yay, then
 ```
+<<<<<<< HEAD
 yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct brightnessctl starship zathura zathura-pdf-mupdf
+=======
+yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct waybar 
+>>>>>>> desktop-pc
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
