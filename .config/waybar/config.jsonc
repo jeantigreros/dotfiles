@@ -6,7 +6,7 @@
   "margin-bottom": 0,
   "margin-left": 0,
   "margin-right": 0,
-  "modules-left": ["hyprland/workspaces", "custom/spotify"],
+  "modules-left": ["hyprland/workspaces", "custom/playerctl","custom/playerlabel"],
   "modules-center": ["cpu", "memory", "disk"],
   "modules-right": [
     "tray",
@@ -48,8 +48,8 @@
       "on-click": "playerctl previous",
       "on-click-right": "playerctl next",
       "format-icons": {
-        "Playing": "",
-        "Paused": ""
+        "Playing": "  ",
+        "Paused": "  "
       }
     },
 
@@ -62,8 +62,8 @@
       "on-click": "playerctl previous",
       "on-click-right": "playerctl next",
       "format-icons": {
-        "Playing": "",
-        "Paused": ""
+        "Playing": "  ",
+        "Paused": "  "
       }
     },
   "memory": {
