@@ -34,9 +34,9 @@
 **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
-1. first install yay, starship, then
+1. first install yay, then
 ```
-yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct brightnessctl starship zathura zathura-pdf-mupdf rust 
+yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct brightnessctl starship zathura zathura-pdf-mupdf
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
