@@ -36,7 +36,7 @@
 # installation - arch
 1. first install yay, starship, then
 ```
-yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct brightnessctl 
+yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct brightnessctl waybar 
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
