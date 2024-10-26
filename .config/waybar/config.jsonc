@@ -1,66 +1,59 @@
 {
-    "position": "top",
-    "layer": "top",
-    "height": 37,
-    "margin-top": 0,
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,
-    "modules-left": ["hyprland/workspaces", "custom/playerctl", "custom/playerlabel"],
-    "modules-center": ["cpu", "memory", "disk"],
-    "modules-right": ["tray","group/temp","wireplumber","battery","clock","custom/power"],
-    // Modules configuration
-	"clock": {
-		"format": "  {:%H:%M}",
-		"tooltip": "true",
-        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        	"format-alt": "  {:%d/%m} "
-	},
+  "position": "top",
+  "layer": "top",
+  "height": 37,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "modules-left": ["hyprland/workspaces", "custom/spotify"],
+  "modules-center": ["cpu", "memory", "disk"],
+  "modules-right": [
+    "tray",
+    "group/temp",
+    "wireplumber",
+    "battery",
+    "clock",
+    "custom/power"
+  ],
+  // Modules configuration
+  "clock": {
+    "format": "  {:%H:%M}",
+    "tooltip": "true",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "  {:%d/%m} "
+  },
 
-
-	"hyprland/workspaces": {
-        "active-only": false,
-        "all-outputs": true,
-        "disable-scroll": false,
-        "on-scroll-up": "hyprctl dispatch workspace -1",
-        "on-scroll-down": "hyprctl dispatch workspace +1",
-		"format": "{icon}",
-		"on-click": "activate",
-		"format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": "󰧞",
-    "sort-by-number": false
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": "󰧞",
+      "sort-by-number": false
     }
-    },
+  },
 
-    "custom/playerctl": {
-      "format": "{icon}",
-      "return-type": "json",
-      "max-length": 64,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click-middle": "playerctl play-pause",
-      "on-click": "playerctl previous",
-      "on-click-right": "playerctl next",
-      "format-icons": {
-        "Playing": "<span foreground='#E5B9C6'>  </span>",
-        "Paused": "<span foreground='#928374'>  </span>"
-      }
-    },
-
-    "custom/playerlabel": {
-      "format": "<span>{}</span>",
-      "return-type": "json",
-      "max-length": 48,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click-middle": "playerctl play-pause",
-      "on-click": "playerctl previous",
-      "on-click-right": "playerctl next",
-      "format-icons": {
-        "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
-        "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
-      }
-    },
+  "custom/spotify": {
+    "format": "{icon} {}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 40,
+    "interval": 30, // Remove this if your script is endless and write in loop
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "killall spotify",
+    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+    "exec-if": "pgrep spotify"
+  },
 
   "memory": {
     "format": " 󰍛 {}%",
@@ -81,77 +74,73 @@
     "path": "/home/"
   },
 
-	"network": {
-        	"format-wifi": " 󰤨 ",
-        	"format-ethernet": " 󰈀  Wired",
-        	"format-linked": " {ifname} (No IP)",
-        	"format-disconnected": "󰤭 ",
-        	"format-alt": "󰤨 {ipaddr}/{cidr}",
-          "tooltip-format": "{essid}",
-          "on-click-right": "nm-connection-editor"
+  "network": {
+    "format-wifi": " 󰤨 ",
+    "format-ethernet": " 󰈀  Wired",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "󰤭 ",
+    "format-alt": "󰤨 {ipaddr}/{cidr}",
+    "tooltip-format": "{essid}",
+    "on-click-right": "nm-connection-editor"
   },
 
-	"tray": {
-		"icon-size": 16,
-		"spacing": 5
-	},
+  "tray": {
+    "icon-size": 16,
+    "spacing": 5
+  },
 
   "wireplumber": {
-		"format": " {icon}{volume}% ",
-            "format-muted": " 󰟎 ",
-		"format-icons": {
-			"default": [" 󰋋 "]
-		},
-		"on-click": "pavucontrol",
+    "format": " {icon}{volume}% ",
+    "format-muted": " 󰟎 ",
+    "format-icons": {
+      "default": [" 󰋋 "]
+    },
+    "on-click": "pavucontrol",
     "on-scroll-up": "wpctl set-volume @DEFAULT_SINK@ 5%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
     "scroll-step": 5
   },
 
-
-  "custom/power" : {
+  "custom/power": {
     "format": "{icon}",
     "format-icons": " ⏻ ",
-    "on-click" : "wlogout"
-
+    "on-click": "wlogout"
   },
 
   "custom/arrow": {
     "format": "  ",
-  "interval": 86400,
-  "tooltip": true
-},
+    "interval": 86400,
+    "tooltip": true
+  },
 
-"group/temp": {
-"orientation": "inherit",
-"drawer": {
-  "transition-duration": 300,
-  "children-class": "not-memory",
-  "transition-left-to-right": false
-},
-"modules": ["custom/arrow","network","temperature","backlight"]
-},
+  "group/temp": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/arrow", "network", "temperature", "backlight"]
+  },
 
-  "temperature" : {
+  "temperature": {
     "format": "{temperatureC}°C "
-
   },
 
   "battery": {
     "bat": "BAT1",
     "interval": 45,
     "states": {
-        "warning": 30,
-        "critical": 20
+      "warning": 30,
+      "critical": 20
     },
-    "format": " {icon}  {capacity}% ",
-    "format-icons": [" "," "," "," "," "]
-    },
+    "format": " {icon} {capacity}% ",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
 
-    "backlight": {
-        "device": "intel_backlight",
-      "format": " {icon} {percent}%",
-        "format-icons": ["󰃚","󰃛","󰃜"]
-    }
-
-    }
+  "backlight": {
+    "device": "intel_backlight",
+    "format": " {icon} {percent}%",
+    "format-icons": ["󰃜", "󰃛", "󰃚"]
+  }
+}

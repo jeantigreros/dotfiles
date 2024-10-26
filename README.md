@@ -36,7 +36,7 @@
 # installation - arch
 1. first install yay, starship, then
 ```
-yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct brightnessctl 
+yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct brightnessctl starship zathura zathura-pdf-mupdf rust 
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
@@ -81,7 +81,7 @@ config checkout
 ```
 8. set the flag showUntrackedFiles to no on this specific (local) repository
 ```
-config config local --local status.showUntrackedFiles no
+config config --local status.showUntrackedFiles no
 ```
 9. you're done :]
 
