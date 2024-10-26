@@ -18,7 +18,7 @@
   ],
   // Modules configuration
   "clock": {
-    "format": "  {:%H:%M}",
+    "format": "  {:%H:%M} ",
     "tooltip": "true",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "  {:%d/%m} "
@@ -131,7 +131,7 @@
       "children-class": "not-memory",
       "transition-left-to-right": false
     },
-    "modules": ["custom/arrow", "network", "temperature", "backlight"]
+    "modules": ["custom/arrow", "network", "temperature"]
   },
 
   "temperature": {
