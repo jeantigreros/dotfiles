@@ -29,14 +29,14 @@
 13. pdf viewer = zathura, zathura-pdf-mupdf
 14. utility for manual = man
 15. sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
-16. video and music player = vlc  
+16. video and music player = mpv 
 17. fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
 **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
-1. first install yay, then
+1. first install yay, starship, then
 ```
-yay dunst rofi  ttf-mononoki starship hyprpaper hyprshot pavucontrol qt6ct brightnessctl
+yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct brightnessctl 
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
