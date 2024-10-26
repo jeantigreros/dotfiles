@@ -26,10 +26,3 @@ function ccp() {
 function cca() {
 	config add "$*"
 }
-<<<<<<< HEAD
-. "$HOME/.cargo/env"
-
-# Created by `pipx` on 2024-10-25 04:57:01
-export PATH="$PATH:/home/j/.local/bin"
-=======
->>>>>>> desktop-pc
