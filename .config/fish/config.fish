@@ -6,6 +6,10 @@ starship init fish | source
 
 # Git configuration aliases
 
+function dotfiles --description "dotfiles commands with bare git repo"
+    GIT_WORK_TREE=~ GIT_DIR=~/.cfg/ $argv
+end
+
 function config
     /usr/bin/git --git-dir=/home/j/.cfg --work-tree=/home/j $argv
 end
