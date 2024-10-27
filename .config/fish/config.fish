@@ -7,7 +7,7 @@ starship init fish | source
 # Git configuration aliases
 
 function config
-    /usr/bin/git --git-dir=/home/j/.cfg $argv
+    /usr/bin/git --git-dir=/home/j/.cfg --work-tree=/home/j $argv
 end
 
 function ccs 
