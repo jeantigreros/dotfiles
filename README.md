@@ -33,6 +33,7 @@
 - video and music player = mpv
 - fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
 - shell = fish
+- clipboard manager = wl-clipboard, cliphist
 - **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
