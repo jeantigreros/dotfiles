@@ -34,6 +34,9 @@
 - fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
 - shell = fish
 - clipboard manager = wl-clipboard, cliphist
+- power management = tlp
+- intel microcode = intel-ucode
+- file manager = ranger
 - **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
