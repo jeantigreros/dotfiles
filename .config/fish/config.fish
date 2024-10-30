@@ -30,4 +30,19 @@ function cca
     config add $argv
 end
 
+function ggs 
+    git status
+end
+
+function ggm 
+    git commit -m "$argv"
+end
+
+function ggp 
+    git push
+end
+
+function gga 
+    git add $argv
+end
 
