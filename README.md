@@ -32,6 +32,8 @@
 - video and music player = mpv
 - fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
 - shell = fish
+- clipboard manager = wl-clip-persist
+- testing tui youtube viewer = ytfzf
 - **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
