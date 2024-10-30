@@ -34,6 +34,7 @@
 - shell = fish
 - clipboard manager = wl-clip-persist
 - testing tui youtube viewer = ytfzf
+- IDE = nvim with some plugins
 - **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
