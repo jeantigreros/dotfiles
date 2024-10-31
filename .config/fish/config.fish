@@ -46,3 +46,4 @@ function gga
     git add $argv
 end
 
+source "$HOME/.cargo/env.fish"
