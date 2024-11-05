@@ -14,11 +14,11 @@
   "modules-center": ["cpu", "memory", "disk"],
   "modules-right": [
     "tray",
-    "group/temp",
     "wireplumber",
     "battery",
     "clock",
-    "custom/power"
+    "custom/power",
+    "group/temp"
   ],
   // Modules configuration
   "clock": {

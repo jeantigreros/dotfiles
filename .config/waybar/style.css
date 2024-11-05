@@ -12,7 +12,7 @@ window#waybar {
     /* background: transparent;  */
 }
 
-#cpu, #memory, #disk, #clock, #custom-power, #workspaces, #custom-date, #battery, #pipewire, #backlight, #network, #custom-randwall, #custom-launcher {
+#tray, #cpu, #memory, #disk, #clock, #custom-power, #workspaces, #custom-date, #battery, #pipewire, #backlight, #network, #custom-randwall, #custom-launcher {
 	background: transparent;
   color: white;
   padding-left: 5px;
@@ -39,7 +39,10 @@ background-color: #db5a53;
   background-color: #696ebf;
 }
 
-
+#tray {
+  padding-right: 9px;
+  padding-left: 9px;
+}
 /* "modules-left": ["hyprland/workspaces", "custom/playerctl", "custom/playerlabel"],
     "modules-center": ["cpu", "memory", "disk"],
     "modules-right": ["tray","group/temp","wireplumber","battery","clock","custom/power"], */
