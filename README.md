@@ -35,6 +35,7 @@
 - clipboard manager = wl-clip-persist
 - testing tui youtube viewer = ytfzf
 - IDE = nvim with some plugins
+- firewall = ufw ( unclomplicated firewall )
 - **if arch then yay reflector :] i'm not asking**
 
 # installation - arch
