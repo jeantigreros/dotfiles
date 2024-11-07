@@ -38,8 +38,8 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 -- nvim-ale config
  vim.cmd [[
    let g:ale_linters = {
-       \ 'typescript': ['tsserver'],
-       \ 'typescriptreact': ['tsserver'],
+       \ 'typescript': ['ts_ls'],
+       \ 'typescriptreact': ['ts_ls'],
        \ }
    let g:ale_fixers = {
        \ 'typescript': ['prettier'],
