@@ -19,7 +19,7 @@
 - notifications = dunst
 - application runner = rofi
 - bar = waybar - font: mononoki
-- font = mononoki
+- fonts = mononoki noto-fonts noto-fonts-cjk noto-fonts-emoji
 - prompt = starship
 - wallpaper = hyprpaper
 - screenshot = hyprshot
