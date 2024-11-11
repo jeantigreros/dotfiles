@@ -91,7 +91,7 @@ return {
       end)
 
       require('mason-lspconfig').setup({
-        ensure_installed = {'tsserver'},  -- Ensure tsserver is installed
+        ensure_installed = {'ts_ls'},  -- Ensure tsserver is installed
         handlers = {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
@@ -105,8 +105,8 @@ return {
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
           end,
-          tsserver = function()
-            require('lspconfig').tsserver.setup({
+          ts_ls = function()
+            require('lspconfig').ts_ls.setup({
               on_attach = function(client, bufnr)
                 -- Add any specific settings for tsserver here
                 lsp_zero.default_keymaps({buffer = bufnr})
