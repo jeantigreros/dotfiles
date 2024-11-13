@@ -17,7 +17,7 @@
 
 - package manager = yay
 - notifications = dunst
-- application runner = rofi
+- application runner = rofi + rofi-calc
 - bar = waybar - font: mononoki
 - font = mononoki
 - prompt = starship
@@ -43,7 +43,7 @@
 1. first install yay, then
 
 ```
-yay dunst rofi reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct waybar fish
+yay dunst rofi rofi-calc reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct waybar fish
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
