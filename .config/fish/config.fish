@@ -47,3 +47,5 @@ function gga
 end
 
 source "$HOME/.cargo/env.fish"
+
+export EDITOR="nvim"
