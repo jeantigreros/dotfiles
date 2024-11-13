@@ -18,70 +18,70 @@
 - package manager = yay
 - notifications = dunst
 - application runner = rofi + rofi-calc
-- bar = waybar - font: mononoki
+- bar = waybar 
 - font = mononoki
 - prompt = starship
 - wallpaper = hyprpaper
 - screenshot = hyprshot
 - sound controller = pavucontrol
-- dark theme = qt6ct
+- dark theme manager = qt6ct
 - network = networkmanager
 - pdf viewer = zathura, zathura-pdf-mupdf
-- utility for manual = man
+- utility for manuals = man
 - sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
 - video and music player = mpv
-- fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
+- fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts + emojis + cjk
 - shell = fish
-- clipboard manager = wl-clip-persist
-- IDE = nvim with some plugins
+- clipboard manager = wl-clipboard + wl-clip-persist
+- IDE = nvim and vscode
 - firewall = ufw ( unclomplicated firewall )
-- **if arch then yay reflector :] i'm not asking**
+- install reflector :] **must**
 
 # installation - arch
 
 1. first install yay, then
 
-```
-yay dunst rofi rofi-calc reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct waybar fish archlinux-xdg-menu
+```bash
+yay -S dunst rofi rofi-calc waybar mononoki starship hyprpaper hyprshot pavucontrol qt6ct zathura zathura-pdf-mupdf man mpv ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts noto-fonts-cjk noto-fonts-emoji fish ufw reflector archlinux-xdg-menu ripgrep fzf
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
 
-```
+```bash
 echo ".cfg" >> .gitignore
 ```
 
 3. clone the dotfiles into a bare repository in a "dot" folder of your $HOME:
 
-```
+```bash
 git clone --bare https://github.com/jeantigreros/dotfiles-new $HOME/.cfg
 ```
 
 4. define the alias in the current shell scope
 
-```
+```bash
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ```
 
 5. checkout the actual content from the bare repository to your $HOME:
 
-```
+```bash
 config checkout
 ```
 
 6. if the step above fial with a message like this:
 
-```
+```bash
 error: The following ...
   .bashrc
   .gitignore
-Please move or remove blablabla
+Please move or remove ... 
 Aborting
 ```
 
 its because yor $HOME folder might already have some stock config files wich would be overwritten by Git. backup the files.
 
-```
+```bash
 mkdir -p .config-backup && \
 config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
 xargs -I{} mv {} .config-backup/{}
@@ -89,13 +89,13 @@ xargs -I{} mv {} .config-backup/{}
 
 7. run again the command
 
-```
+```bash
 config checkout
 ```
 
 8. set the flag showUntrackedFiles to no on this specific (local) repository
 
-```
+```bash
 config config --local status.showUntrackedFiles no
 ```
 
@@ -105,9 +105,7 @@ config config --local status.showUntrackedFiles no
 
 Personal mod
 
-login.conf -> handlelid suspend
-
-if ssd then activate trim
+if you have a ssd then you maybe want to activate trim
 
 # Postdata
 
