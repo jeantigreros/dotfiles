@@ -25,7 +25,7 @@
 - screenshot = hyprshot
 - sound controller = pavucontrol
 - dark theme = qt6ct
-- network discovery = networkmanager
+- network = networkmanager
 - pdf viewer = zathura, zathura-pdf-mupdf
 - utility for manual = man
 - sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
@@ -33,7 +33,6 @@
 - fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki
 - shell = fish
 - clipboard manager = wl-clip-persist
-- testing tui youtube viewer = ytfzf
 - IDE = nvim with some plugins
 - firewall = ufw ( unclomplicated firewall )
 - **if arch then yay reflector :] i'm not asking**
@@ -43,7 +42,7 @@
 1. first install yay, then
 
 ```
-yay dunst rofi rofi-calc reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct waybar fish
+yay dunst rofi rofi-calc reflector ttf-ubuntu-mono-nerd ttf-hack-nerd ttf-mononoki-nerd  mpv hyprpaper hyprshot pavucontrol qt6ct waybar fish archlinux-xdg-menu
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
