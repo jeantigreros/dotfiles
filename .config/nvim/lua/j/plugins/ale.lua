@@ -1,6 +1,6 @@
 return {
     'dense-analysis/ale',
-    enabled = false, 
+    enabled = true, 
     config = function()
         -- Configuration goes here.
         local g = vim.g
@@ -8,8 +8,8 @@ return {
         g.ale_ruby_rubocop_auto_correct_all = 1
 
         g.ale_linters = {
-            typescript = {'tsserver'},
-            typescriptreact = {'tsserver'},
+            typescript = {'ts_ls'},
+            typescriptreact = {'ts_ls'},
         }
     end
 }
