@@ -14,6 +14,7 @@
   "modules-center": ["cpu", "memory", "disk"],
   "modules-right": [
     "tray",
+    "temperature",
     "wireplumber",
     "battery",
     "clock",
@@ -135,7 +136,7 @@
       "children-class": "not-memory",
       "transition-left-to-right": false
     },
-    "modules": ["custom/arrow", "network", "temperature"]
+    "modules": ["custom/arrow", "network"] 
   },
 
   "temperature": {

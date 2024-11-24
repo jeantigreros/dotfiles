@@ -19,9 +19,9 @@ window#waybar {
   padding-right: 5px;
 }
 
-#clock {
+/* #clock {
   background-color: #81a1c1;
-}
+} */
 
 #battery {
   background-color: rgb(51, 195, 75);
@@ -35,9 +35,9 @@ background-color: #db5a53;
   background-color: red;
 }
 
-#wireplumber {
+/* #wireplumber {
   background-color: #696ebf;
-}
+} */
 
 #tray {
   padding-right: 9px;

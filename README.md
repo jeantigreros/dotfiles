@@ -38,14 +38,16 @@
 - firewall = ufw ( unclomplicated firewall )
 - install reflector :] **must**
 - terminal multiplexer = tmux
+- brightness control = brightnessctl
+- power management = tlp
+- intel microcode = intel-ucode
 
 # installation - arch
 
 1. first install yay, then
 
 ```bash
-yay -S dunst rofi rofi-calc tmux ranger python-pillow python3 waybar mononoki starship hyprpaper hyprshot pavucontrol qt6ct zathura zathura-pdf-mupdf man mpv ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts noto-fonts-cjk noto-fonts-emoji fish ufw reflector archlinux-xdg-menu ripgrep fzf
-```
+yay -S dunst rofi rofi-calc tmux ranger python-pillow python3 waybar mononoki starship hyprpaper hyprshot pavucontrol qt6ct zathura zathura-pdf-mupdf man mpv ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts noto-fonts-cjk noto-fonts-emoji fish ufw reflector archlinux-xdg-menu ripgrep fzf python-nvim texlive
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
 
@@ -60,18 +62,17 @@ git clone --bare https://github.com/jeantigreros/dotfiles $HOME/.cfg
 ```
 
 4. define the alias in the current shell scope
-
 ```bash
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 ```
 
 5. checkout the actual content from the bare repository to your $HOME:
 
-```bash
+```
 config checkout
 ```
 
-6. if the step above fial with a message like this:
+6. if the step above fail with a message like this:
 
 ```bash
 error: The following ...
@@ -81,7 +82,7 @@ Please move or remove ...
 Aborting
 ```
 
-its because yor $HOME folder might already have some stock config files wich would be overwritten by Git. backup the files.
+It's  because your $HOME folder might already have some stock config files which would be overwritten by Git. Backup the files.
 
 ```bash
 mkdir -p .config-backup && \
