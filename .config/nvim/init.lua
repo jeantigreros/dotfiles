@@ -27,6 +27,17 @@ vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+vim.opt.linebreak = true
+vim.opt.spelllang = {'en_us', 'es_es'}
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"html", "markdown","text","tex"},
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
+vim.api.nvim_set_keymap('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u', { noremap = true, silent = true})
+
+
 
 -- nvim-tree binds 
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
