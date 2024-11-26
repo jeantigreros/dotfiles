@@ -30,6 +30,7 @@
 - pdf viewer = zathura, zathura-pdf-mupdf
 - utility for manuals = man
 - sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
+- c# compiler = omnisharp
 - video and music player = mpv
 - fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts + emojis + cjk
 - shell = fish
@@ -44,7 +45,7 @@
 1. first install yay, then
 
 ```bash
-yay -S dunst rofi rofi-calc tmux ranger python-pillow python3 waybar mononoki starship hyprpaper hyprshot pavucontrol qt6ct zathura zathura-pdf-mupdf man mpv ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts noto-fonts-cjk noto-fonts-emoji fish ufw reflector archlinux-xdg-menu ripgrep fzf
+yay -S dunst rofi rofi-calc omnisharp tmux ranger python-pillow python3 waybar mononoki starship hyprpaper hyprshot pavucontrol qt6ct zathura zathura-pdf-mupdf man mpv ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts noto-fonts-cjk noto-fonts-emoji fish ufw reflector archlinux-xdg-menu ripgrep fzf
 ```
 
 2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
