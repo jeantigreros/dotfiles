@@ -19,10 +19,6 @@ window#waybar {
   padding-right: 5px;
 }
 
-#clock {
-  background-color: #81a1c1;
-}
-
 #battery {
   background-color: rgb(51, 195, 75);
 }
@@ -33,10 +29,6 @@ background-color: #db5a53;
 
 #battery.critical {
   background-color: red;
-}
-
-#wireplumber {
-  background-color: #696ebf;
 }
 
 #tray {
