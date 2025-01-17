@@ -27,3 +27,4 @@ function cca() {
 	config add "$*"
 }
 . "$HOME/.cargo/env"
+source /usr/share/nvm/init-nvm.sh
