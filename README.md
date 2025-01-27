@@ -106,8 +106,15 @@ config config --local status.showUntrackedFiles no
 ```bash
 tmux source ~/.config/tmux/tmux.conf
 ```
-10. you're done :]
+10. install hyprland plugins
+```bash
+hyprpm add https://github.com/outfoxxed/hy3
+```
 
+11. then enable plugin
+```bash
+hyprpm enable hy3
+```
 ---
 
 Personal mod
