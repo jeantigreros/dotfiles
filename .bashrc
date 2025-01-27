@@ -28,3 +28,6 @@ function cca() {
 }
 . "$HOME/.cargo/env"
 source /usr/share/nvm/init-nvm.sh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/j/.lmstudio/bin"
