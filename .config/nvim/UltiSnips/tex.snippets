@@ -12,32 +12,115 @@ def env(name):
 endglobal
 
 
-snippet template "Basic template" b
-\documentclass[a4paper]{article}
-
+snippet unad "Basic template" b
+\documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage[dutch]{babel}
-\usepackage{amsmath, amssymb}
+\usepackage[left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{float}
+\usepackage{apacite}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikzpagenodes}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\footrulewidth}{0pt}
 
 
-% figure support
-\usepackage{import}
-\usepackage{xifthen}
-\pdfminorversion=7
-\usepackage{pdfpages}
-\usepackage{transparent}
-\newcommand{\incfig}[1]{%
-	\def\svgwidth{\columnwidth}
-	\import{./figures/}{#1.pdf_tex}
-}
+\fancyfoot[R]{\begin{tikzpicture}[remember picture,overlay]
+\draw  let \p1=($(current page footer area.north)-(current page.south)$),
+      \n1={veclen(\x1,\y1)} in
+node [inner sep=0,outer sep=0,above right] 
+      at (current page.south west){\includegraphics[width=\paperwidth,height=\n1]{banner-abajo.png}};
+\end{tikzpicture}}
 
-\pdfsuppresswarningpagegroup=1
+\fancyhead[R]{}
+
+\fancyhead[L]{\begin{tikzpicture}[remember picture,overlay]
+\draw  let \p1=($(current page.north)-(current page header area.south)$),
+      \n1={veclen(\x1,\y1)} in
+node [inner sep=0,outer sep=0,below right] 
+at (current page.north west){\includegraphics[width=\paperwidth,height=\n1]{banner-arriba.png}};
+\end{tikzpicture}}
+
+\setlength{\headheight}{1.5cm}
+
+% Title formatting
+\titleformat{\section}{\centering\bfseries\MakeUppercase}{\thesection.}{1em}{}
+\titleformat{\subsection}{\bfseries\MakeUppercase}{\thesubsection.}{1em}{}
+\titleformat{\subsubsection}{\itshape\bfseries}{\thesubsubsection.}{1em}{}
+
+\renewcommand{\baselinestretch}{2.0}
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
 
 \begin{document}
-	$0
+
+% Cover page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\LARGE \textbf{$0}}\\[1.5cm]
+    \textbf{Jean Carlos Tigreros Mojica}\\
+    \textbf{}\\[1.5cm]
+    \textbf{Universidad Nacional Abierta y a Distancia - UNAD}\\
+    \textbf{ECBTI - Escuela de Ciencias Básicas, Tecnología e Ingeniería}\\
+    \textbf{}\\
+    2025
+\end{titlepage}
+
+% Abstract
+\section*{Introducción}
+El resumen debe contener un máximo de 350 palabras, alineado a la izquierda sin sangría.\\
+\textbf{Palabras clave:} Educación, enseñanza, estudiantes.
+\newpage
+
+% Table of contents
+\newpage
+\tableofcontents
+\newpage
+
+% Sections
+\section{Introducción}
+
+
+\newpage
+\section{Justificación}
+
+
+\newpage
+\section{Objetivos}
+\subsection{Objetivo General}
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+    \item Objetivo 1
+    \item Objetivo 2
+    \item Objetivo 3
+\end{itemize}
+
+\newpage
+% Figures and Tables
+\section{Figuras y Tablas}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{banner-arriba.png}
+    \caption{Ejemplo de figura}\label{fig:ejemplo}
+\end{figure}
+
+% References
+\newpage
+\section{Referencias}
+
 \end{document}
+
+\documentclass[a4paper]{article}
 endsnippet
 
 snippet beg "begin{} / end{}" bA

@@ -69,4 +69,3 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- astro
 local lspconfig = require("lspconfig")
 lspconfig.astro.setup({})
-
