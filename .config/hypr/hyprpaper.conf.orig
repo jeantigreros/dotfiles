@@ -1,0 +1,8 @@
+preload = ~/Pictures/wallpapers/wallpaper.png
+<<<<<<< HEAD
+preload = ~/Pictures/wallpapers/ThonkPad.jpg
+ipc = off # disable ipc
+=======
+
+>>>>>>> main
+wallpaper = , ~/Pictures/wallpapers/wallpaper.png
