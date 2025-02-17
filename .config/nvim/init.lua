@@ -29,12 +29,14 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.linebreak = true
 vim.opt.spelllang = {'en_us', 'es_es'}
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {"html", "markdown","text","tex"},
   callback = function()
     vim.opt_local.spell = true
   end,
 })
+
 vim.api.nvim_set_keymap('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u', { noremap = true, silent = true})
 
 
@@ -101,3 +103,7 @@ vim.api.nvim_create_autocmd("FileType", {
         print("It's a json file")
     end,
 })
+
+
+vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)

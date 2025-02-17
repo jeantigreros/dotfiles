@@ -1,7 +1,7 @@
 {
-  "position": "bottom",
-  "layer": "bottom",
-  "height": 24,
+  "position": "top",
+  "layer": "top",
+  "height": 37,
   "margin-top": 0,
   "margin-bottom": 0,
   "margin-left": 0,
@@ -11,15 +11,14 @@
     "custom/playerctl",
     "custom/playerlabel"
   ],
+  "modules-center": ["cpu", "memory", "disk"],
   "modules-right": [
     "tray",
     "wireplumber",
-    "cpu",
-    "memory", "disk",
     "battery",
     "clock",
-    "network",
-    "custom/power"
+    "custom/power",
+    "group/temp"
   ],
   // Modules configuration
   "clock": {
@@ -93,9 +92,9 @@
   "network": {
     "format-wifi": " 󰤨 ",
     "format-ethernet": " 󰈀  Wired",
-    "format-linked": " 󰈀 {ifname} (No IP)",
-    "format-disconnected": " 󰈂 ",
-    "format-alt": " 󰤨 {ipaddr}/{cidr}",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "󰤭 ",
+    "format-alt": "󰤨 {ipaddr}/{cidr}",
     "tooltip-format": "{essid}",
     "on-click-right": "nm-connection-editor"
   },
@@ -121,6 +120,22 @@
     "format": "{icon}",
     "format-icons": " ⏻ ",
     "on-click": "wlogout"
+  },
+
+  "custom/arrow": {
+    "format": "  ",
+    "interval": 86400,
+    "tooltip": true
+  },
+
+  "group/temp": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/arrow", "network", "temperature"]
   },
 
   "temperature": {
