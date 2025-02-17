@@ -66,6 +66,38 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- save
+vim.keymap.set('n', '<C-s>', ":w<CR>", { noremap = true})
+
 -- astro
 local lspconfig = require("lspconfig")
 lspconfig.astro.setup({})
+
+-- python run
+vim.keymap.set('n', '<leader>p', ':term python3 %<CR>', { noremap = true, silent = true} )
+
+-- rest.nvim config
+
+vim.g.rest_nvim = {
+  vim.keymap.set("n", "<leader>rr", "<cmd>Rest run<CR>", { desc = "Run HTTP request" }),
+  vim.keymap.set("n", "<leader>rp", "<cmd>Rest run last<CR>", { desc = "Repeat last request" }),
+  vim.keymap.set("n", "<leader>rl", "<cmd>Rest log<CR>", { desc = "Show request log" }),
+}
+
+-- local replace
+vim.keymap.set("n", "<leader>sr", function()
+  local old_var = vim.fn.input("Old variable: ")
+  local new_var = vim.fn.input("New variable: ")
+  if old_var ~= "" and new_var ~= "" then
+    vim.cmd(string.format("%%s/%s/%s/g", old_var, new_var))
+  end
+end, { desc = "Replace variable in file" })
+
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "json",
+    callback = function(ev)
+        vim.bo[ev.buf].formatprg = "jq"
+        print("It's a json file")
+    end,
+})

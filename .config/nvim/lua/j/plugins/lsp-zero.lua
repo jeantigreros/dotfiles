@@ -35,6 +35,10 @@ return {
       {'L3MON4D3/LuaSnip'},
     },
     config = function()
+      
+      -- autopairs
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      
       -- Here is where you configure the autocompletion settings.
       local lsp_zero = require('lsp-zero')
       lsp_zero.extend_cmp()
@@ -42,6 +46,11 @@ return {
       -- And you can configure cmp even more, if you want to.
       local cmp = require('cmp')
       local cmp_action = lsp_zero.cmp_action()
+
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
 
       require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -91,23 +100,32 @@ return {
       end)
 
       require('mason-lspconfig').setup({
-        ensure_installed = {'ts_ls'},  -- Ensure tsserver is installed
+        ensure_installed = {'ts_ls', 'astro'},  -- Ensure tsserver is installed
         handlers = {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
           function(server_name)
             require('lspconfig')[server_name].setup({})
           end,
-
+          
           -- this is the "custom handler" for `lua_ls`
           lua_ls = function()
             -- (Optional) Configure lua language server for neovim
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
           end,
-          ts_ls = function()
-            require('lspconfig').ts_ls.setup({
-              on_attach = function(client, bufnr)
+      astro = function()
+        require('lspconfig').astro.setup({
+          capabilities = lsp_zero.build_options('astro', {}).capabilities,
+          on_attach = function(client, bufnr)
+            lsp_zero.default_keymaps({ buffer = bufnr })
+          end,
+          filetypes = { 'astro' },
+        })
+          end,
+        ts_ls = function()
+          require('lspconfig').ts_ls.setup({
+            on_attach = function(client, bufnr)
                 -- Add any specific settings for tsserver here
                 lsp_zero.default_keymaps({buffer = bufnr})
               end,

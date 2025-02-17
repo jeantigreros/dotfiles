@@ -1,13 +1,15 @@
-return{
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        astro = {
-          enableAstroServer = true,
+return {
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      astro = {
+        settings = {
+          astro = {
+            contentIntellisense = true,
+          },
         },
       },
     },
-  }
+  },
 }
 

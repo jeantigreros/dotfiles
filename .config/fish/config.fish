@@ -61,5 +61,9 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
+# Set root folder for jump.fish
+
+set -g j_path "$HOME/dev"
+
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /home/j/.lmstudio/bin
