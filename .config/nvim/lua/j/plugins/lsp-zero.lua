@@ -114,15 +114,6 @@ return {
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
           end,
-      astro = function()
-        require('lspconfig').astro.setup({
-          capabilities = lsp_zero.build_options('astro', {}).capabilities,
-          on_attach = function(client, bufnr)
-            lsp_zero.default_keymaps({ buffer = bufnr })
-          end,
-          filetypes = { 'astro' },
-        })
-          end,
         ts_ls = function()
           require('lspconfig').ts_ls.setup({
             on_attach = function(client, bufnr)

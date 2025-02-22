@@ -12,11 +12,15 @@ window#waybar {
     /* background: transparent;  */
 }
 
-#tray, #cpu, #memory, #disk, #clock, #custom-power, #workspaces, #custom-date, #battery, #wireplumber, #backlight, #network, #custom-randwall, #custom-launcher {
+#tray, #cpu, #memory, #disk, #clock, #custom-power, #workspaces, #custom-date, #battery, #wireplumber,#temperature,  #backlight, #network, #custom-randwall, #custom-launcher {
 	background: transparent;
   color: white;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+#temperature.critical {
+  background-color: red;
 }
 
 #battery {

@@ -53,6 +53,12 @@ end
 source "$HOME/.cargo/env.fish"
 
 export EDITOR="nvim"
+export VISUAL="nvim"
+
+# binds
+
+bind \cl forward-char 
+bind \el clear-screen
 
 # pnpm
 set -gx PNPM_HOME "/home/j/.local/share/pnpm"
@@ -67,3 +73,6 @@ set -g j_path "$HOME/dev"
 
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /home/j/.lmstudio/bin
+
+# Created by `pipx` on 2025-02-18 00:42:11
+set PATH $PATH /home/j/.local/bin

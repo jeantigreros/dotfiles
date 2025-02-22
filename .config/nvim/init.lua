@@ -42,11 +42,12 @@ vim.api.nvim_set_keymap('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u', { noremap = t
 
 
 -- nvim-tree binds 
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+
 
 -- nvim-ale config
  vim.cmd [[
@@ -76,7 +77,7 @@ local lspconfig = require("lspconfig")
 lspconfig.astro.setup({})
 
 -- python run
-vim.keymap.set('n', '<leader>p', ':term python3 %<CR>', { noremap = true, silent = true} )
+vim.keymap.set('n', '<leader><F8>', ':term python3 %<CR>', { noremap = true, silent = true} )
 
 -- rest.nvim config
 
@@ -100,10 +101,37 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "json",
     callback = function(ev)
         vim.bo[ev.buf].formatprg = "jq"
-        print("It's a json file")
     end,
 })
 
-
+-- view diagnostics
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
+
+-- neovim session manager
+
+vim.keymap.set("n", "<leader>ss", ":SessionManager load_session<CR>", { desc = "Load Session" })
+vim.keymap.set("n", "<leader>sd", ":SessionManager delete_session<CR>", { desc = "Delete Session" })
+vim.keymap.set("n", "<leader>sl", ":SessionManager load_last_session<CR>", { desc = "Load Last Session" })
+vim.keymap.set("n", "<leader>sw", ":SessionManager save_current_session<CR>", { desc = "Save Session" })
+
+-- ranger config
+
+local ranger_nvim = require("ranger-nvim")
+ranger_nvim.setup({
+  enable_cmds = false,
+  replace_netrw = true,
+  keybinds = {
+    ["ov"] = ranger_nvim.OPEN_MODE.vsplit,
+    ["oh"] = ranger_nvim.OPEN_MODE.split,
+    ["ot"] = ranger_nvim.OPEN_MODE.tabedit,
+    ["or"] = ranger_nvim.OPEN_MODE.rifle,
+  },
+  ui = {
+    border = "single",
+    height = 0.9,
+    width = 1,
+    x = 0,
+    y = 0,
+  }
+})
