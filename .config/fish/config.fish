@@ -46,10 +46,6 @@ function gga
     git add $argv
 end
 
-function cat
-    bat $argv
-end
-
 source "$HOME/.cargo/env.fish"
 
 export EDITOR="nvim"
