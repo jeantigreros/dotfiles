@@ -49,7 +49,6 @@ end
 source "$HOME/.cargo/env.fish"
 
 export EDITOR="nvim"
-export VISUAL="nvim"
 
 # binds
 

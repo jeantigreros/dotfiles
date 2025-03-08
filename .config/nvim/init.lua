@@ -135,3 +135,7 @@ ranger_nvim.setup({
     y = 0,
   }
 })
+
+-- Exit terminal mode
+vim.keymap.set('t', "<Esc>", "<C-\\><C-N>", {silent = true})
+
