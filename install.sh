@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_DIR="$HOME/.config"
+TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
+BACKUP_DIR="$CONFIG_DIR/backup-$TIMESTAMP"
+
+CONFIGS=(
+  dunst
+  fish
+  foot
+  i3
+  i3status
+  kitty
+  mpv
+  nvim
+  qutebrowser
+  rofi
+  sway
+  swaybar
+  tmux
+  waybar
+
+)
+
+HOME_ITEMS=(
+  bashrc
+  bash_profile
+  fzf.bash
+)
+
+backup=false
+
+echo "First time installing this dotfiles?"
+read -r -p "[y/N] " response
+response=${response,,}
+
+if [[ "$response" =~ ^(y|yes)$ ]]; then
+  backup=true
+  mkdir -p "$BACKUP_DIR"
+  echo "Backup directory created: $BACKUP_DIR"
+fi
+
+link_file () {
+  src="$1"
+  dest="$2"
+
+  if [[ -e "$dest" || -L "$dest" ]]; then
+    if [[ "$backup" == true ]]; then
+      echo "Backing up $dest"
+      mv "$dest" "$BACKUP_DIR/"
+    fi
+  fi
+
+  echo "Linking $dest → $src"
+  ln -snfvT "$src" "$dest"
+}
+
+echo
+echo "Linking config directories..."
+
+for cfg in "${CONFIGS[@]}"; do
+  src="$DOTFILES_DIR/$cfg"
+  dest="$CONFIG_DIR/$cfg"
+
+  if [[ -d "$src" ]]; then
+    mkdir -p "$CONFIG_DIR"
+    link_file "$src" "$dest"
+  else
+    echo "Skipping missing config: $cfg"
+  fi
+done
+
+echo
+echo "Linking home dotfiles..."
+
+for file in "${HOME_ITEMS[@]}"; do
+  src="$DOTFILES_DIR/$file"
+  dest="$HOME/.${file}"
+
+  if [[ -e "$src" ]]; then
+    link_file "$src" "$dest"
+  else
+    echo "Skipping missing file: $file"
+  fi
+done
+
+echo "Want to install typst templates?"
+read -r -p "[y/N] " res
+res=${res,,}
+
+if [[ "$res" =~ ^(y|yes)$ ]]; then
+  TYPST_LOCAL_DIR="$HOME/.local/share/typst/packages/local"
+  SRC_TYPST_DIR="$DOTFILES_DIR/typst"
+
+  mkdir -p "$(dirname "$TYPST_LOCAL_DIR")"
+
+  echo "Linking Typst local packages..."
+  link_file "$SRC_TYPST_DIR" "$TYPST_LOCAL_DIR"
+fi
+
+
+echo
+echo "Dotfiles installation complete."
+
+if [[ "$backup" == true ]]; then
+  echo "Backup saved at: $BACKUP_DIR"
+fi
