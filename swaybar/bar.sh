@@ -68,10 +68,10 @@ while :
 do
 echo -n "["
 player
-mydate
 volume
 ipaddr
 disk
+mydate
 echo -n "],"
 sleep 1
 done
