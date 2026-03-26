@@ -22,6 +22,13 @@ exec_always --no-startup-id dex --autostart --environment sway
 # Background
 exec_always swaybg -i /home/j/Pictures/wallpaper.png -m fill
 
+# Export environment so portals see Wayland display
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR
+
+# Start portal services
+exec /usr/libexec/xdg-desktop-portal &
+exec /usr/libexec/xdg-desktop-portal-wlr &
+
 # Apps
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Return exec foot

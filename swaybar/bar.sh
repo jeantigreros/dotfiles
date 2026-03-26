@@ -28,9 +28,9 @@ volume() {
 
     if [ "$mute_state" = "MUTED" ]; then
         bg="FF0000"
-        stat=""
+        stat="󰟎"
     else
-        stat=" $vol_percent%"
+        stat="󰋋 $vol_percent%"
     fi
 
     common
