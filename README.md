@@ -15,117 +15,54 @@
 
 # Packages
 
-- package manager = yay
-- notifications = dunst
-- application runner = rofi + rofi-calc
-- bar = waybar 
-- font = mononoki
-- joystick driver = joystick
+- package manager = distro specific
+- notifications = dunst | mako
+- application runner = rofi + rofi-calc | wofi
+- bar = waybar | swaybar
+- font = JetBrainsMono Nerd Font
 - prompt = starship
-- wallpaper = hyprpaper as backend | waypaper
-- screenshot = hyprshot
-- file manager = Dolphin | ranger w/ pillow for image preview
+- wallpaper = hyprpaper as backend | waypaper | swaybg
+- screenshot = hyprshot | grim + slurp
+- file manager = Dolphin | ranger w/ pillow for image preview | thunar
 - sound controller = pavucontrol
 - dark theme manager = qt6ct
 - network = networkmanager
 - pdf viewer = zathura, zathura-pdf-mupdf
-- utility for manuals = man
 - sddm theme = [astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
-- c# compiler = omnisharp
 - video and music player = mpv
-- fonts = ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts + emojis + cjk
-- shell = fish
-- clipboard manager = wl-clipboard + cliphist 
-- IDE/editor = nvim
+- fonts = noto-fonts + emojis + cjk
+- shell = bash
+- clipboard manager = wl-clipboard + cliphist | xclip
+- "IDE"/editor = nvim
 - firewall = ufw ( unclomplicated firewall )
-- install reflector :] **must**
 - terminal multiplexer = tmux
 
-# installation - arch
+# Installation
+## Dependencies
+### Arch
 
-1. first install yay, then
-
-```bash
-yay -S dunst rofi rofi-calc archlinux-xdg-menu joystick python-pynvim texlive omnisharp tmux ranger python-pillow python3 waybar mononoki starship hyprpaper hyprshot pavucontrol qt6ct zathura zathura-pdf-mupdf man mpv ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts noto-fonts-cjk noto-fonts-emoji fish ufw reflector archlinux-xdg-menu ripgrep fzf
-```
-
-2. source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems
+Install yay, then
 
 ```bash
-echo ".cfg" >> .gitignore
+yay -S dunst bash-completion rofi rofi-calc archlinux-xdg-menu joystick python-pynvim texlive omnisharp tmux ranger python-pillow python3 waybar mononoki starship hyprpaper hyprshot pavucontrol qt6ct zathura zathura-pdf-mupdf man mpv ttf-hack-nerd ttf-ubuntu-mono-nerd ttf-mononoki noto-fonts noto-fonts-cjk noto-fonts-emoji fish ufw reflector archlinux-xdg-menu ripgrep fzf
 ```
 
-3. clone the dotfiles into a bare repository in a "dot" folder of your $HOME:
+### Fedora
 
 ```bash
-git clone --bare https://github.com/jeantigreros/dotfiles $HOME/.cfg
+dnf install dunst rofi tmux ranger waybar starship pavucontrol qt6ct zathura zathura-pdf-mupdf man mpv ufw ripgrep fzf bash-completion
 ```
+*INCOMPLETE*
 
-4. define the alias in the current shell scope
+### Debian
 
 ```bash
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+apt install mako wofi tmux ranger waybar pavucontrol zathura man mpv ufw ripgrep fzf bash-completion waybar grim slurp wl-clipboard mako-notifier playerctl pipewire pipewire-pulse pipewire-utils pipewire-pulse neovim gcc npm feh imv
 ```
+*INCOMPLETE*
 
-5. checkout the actual content from the bare repository to your $HOME:
+## Install config files
 
 ```bash
-config checkout
+./install.sh
 ```
-
-6. if the step above fial with a message like this:
-
-```bash
-error: The following ...
-  .bashrc
-  .gitignore
-Please move or remove ... 
-Aborting
-```
-
-its because yor $HOME folder might already have some stock config files wich would be overwritten by Git. backup the files.
-
-```bash
-mkdir -p .config-backup && \
-config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
-xargs -I{} mv {} .config-backup/{}
-```
-
-7. run again the command
-
-```bash
-config checkout
-```
-
-8. set the flag showUntrackedFiles to no on this specific (local) repository
-
-```bash
-config config --local status.showUntrackedFiles no
-```
-9. source the tmux file
-```bash
-tmux source ~/.config/tmux/tmux.conf
-```
-10. install hyprland plugins
-```bash
-hyprpm add https://github.com/outfoxxed/hy3
-```
-
-11. then enable plugin
-```bash
-hyprpm enable hy3
-```
-
-12. enable xdg menu
-```bash
-XDG_MENU_PREFIX=arch- kbuildsycoca6
-```
----
-
-Personal mod
-
-if you have a ssd then you maybe want to activate trim
-
-# Postdata
-
-i used figlet for the fancy text
