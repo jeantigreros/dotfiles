@@ -156,30 +156,29 @@ bindsym $mod+Shift+r swaymsg reload
 bindsym $mod+Shift+q exit
 
 # Status bar
-# exec_always waybar
-bar {
-    position bottom
-    height 28
-    font pango:JetBrainsMono Nerd Font 12
-    strip_workspace_numbers yes
-    
-    status_command $HOME/.config/swaybar/bar.sh
-    tray_output primary
-    
-    colors {
-      background            #1e1e1e    
-        statusline          #cccccc  
-        separator           #555555   
-        focused_background  #333333
-        focused_statusline  #ffffff 
-        focused_separator   #777777
-
-        focused_workspace   #666666   #444444 #ffffff
-        active_workspace    #555555   #333333 #ffffff
-        inactive_workspace  #2e2e2e   #1e1e1e #ffffff
-        urgent_workspace    #888888   #333333 #ffffff      
-    }
-} 
+exec_always waybar
+# bar {
+#     position bottom
+#     height 28
+#     font pango:JetBrainsMono Nerd Font 12
+#     strip_workspace_numbers yes
+#     
+#     status_command $HOME/.config/swaybar/bar.sh
+#     
+#     colors {
+#       background            #1e1e1e    
+#         statusline          #cccccc  
+#         separator           #555555   
+#         focused_background  #333333
+#         focused_statusline  #ffffff 
+#         focused_separator   #777777
+#
+#         focused_workspace   #666666   #444444 #ffffff
+#         active_workspace    #555555   #333333 #ffffff
+#         inactive_workspace  #2e2e2e   #1e1e1e #ffffff
+#         urgent_workspace    #888888   #333333 #ffffff      
+#     }
+# } 
 
 # tray
 

@@ -1,77 +1,47 @@
 #!/bin/sh
 
-common() {
-  echo -n "{"
-  echo -n "\"color\":\"#ffffff\","
-  echo -n "\"background\":\"$bg\","
-  echo -n "\"name\":\"$name\","
-  echo -n "\"full_text\":\" $stat\","
-  echo -n "},"
+print_block() {
+  printf '{"full_text":"%s"}' "$1"
 }
 
-mydate() {
-  local name="id_time"
-  local stat=" $(date "+%a-%b-%d %I:%M %p")"
-  common
-}
+echo '{"version":1}'
+echo '['
+echo '[]'
 
-volume() {
-  local name="id_volume"
-  bg=""
+while true; do
+  # --- Player ---
+  PLAYER=$(playerctl metadata --format '{{artist}} - {{title}}' 2>/dev/null)
+  [ -z "$PLAYER" ] && PLAYER="No music"
 
-  # Get volume as float (0–1)
+  # --- Volume ---
   vol_float=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}')
   vol_percent=$(awk -v v="$vol_float" 'BEGIN { printf "%d", v*100 }')
-
-  # Check mute state properly
   mute_state=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -o 'MUTED')
 
   if [ "$mute_state" = "MUTED" ]; then
-    bg="FF0000"
-    stat="󰟎"
+    VOL="󰟎 muted"
   else
-    stat="󰋋 $vol_percent%"
+    VOL="󰋋 $vol_percent%"
   fi
 
-  common
-}
-
-ipaddr() {
-  local name="id_ip"
-  # Get local IP (change interface if needed, e.g. wlan0)
+  # --- IP ---
   ip=$(hostname -I | awk '{print $1}')
   [ -z "$ip" ] && ip="no net"
 
-  local stat="$ip"
-  common
-}
+  # --- Disk ---
+  disk=$(df / -h | awk 'END{print $4}')
 
-disk() {
-  local name="id_disk"
-  # Get disk usage percentage for root
-  USAGE=$(df / -h | tail -1 | awk '{print $4}')
-  local stat=" $USAGE"
-  common
-}
+  # --- Date ---
+  date_str=$(date "+ %a-%b-%d %I:%M %p")
 
-player() {
-  local name="playerctl"
-  PLAYER=$(playerctl metadata --format '{{artist}} - {{title}}')
-  local stat="$PLAYER"
-  common
-}
+  # --- Output (NO trailing commas) ---
+  printf ',['
+  print_block "$PLAYER"; printf ','
+  print_block "$VOL"; printf ','
+  print_block "$ip"; printf ','
+  print_block " $disk"; printf ','
+  print_block "$date_str"
+  printf ']'
 
-echo '{ "version": 1 , "click_events":false}'
-echo '[[],'
-
-while :
-do
-  echo -n "["
-  player
-  volume
-  ipaddr
-  disk
-  mydate
-  echo -n "],"
   sleep 1
 done
