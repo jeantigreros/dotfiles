@@ -97,8 +97,7 @@ untar() {
 }
 
 openports() {
-  local port="${1:-3000}"
-  lsof -i "tcp:$port"
+  sudo lsof -i -P -n | grep LISTEN
 }
 
 set completion-query-items 0
@@ -120,3 +119,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 export MOZ_ENABLE_WAYLAND=1
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
