@@ -120,3 +120,4 @@ export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 export MOZ_ENABLE_WAYLAND=1
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:/home/j/.cargo/bin"

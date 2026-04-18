@@ -12,6 +12,7 @@ vim.pack.add {
   'https://github.com/kristijanhusak/vim-dadbod-ui',
   'https://github.com/kristijanhusak/vim-dadbod-completion',
   'https://github.com/slugbyte/lackluster.nvim',
+  'https://github.com/akinsho/bufferline.nvim',
 }
 
 vim.pack.add({
@@ -34,27 +35,53 @@ vim.opt.confirm = true
 vim.opt.termguicolors = true
 vim.opt.wildoptions:append { 'fuzzy' }
 vim.opt.smoothscroll = true
-vim.opt.grepprg = 'rg --vimgrep --no-messages --smart-case'
+vim.opt.grepprg = "rg --vimgrep --smart-case --hidden --glob '!.git' '!node_modules"
+vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.linebreak = true
 vim.opt.statusline = '[%n] %<%f %h%w%m%r%=%-14.(%l,%c%V%) %P'
 vim.opt.spelllang = {'en', 'es'}
 vim.cmd("colorscheme lackluster-hack")
-vim.api.nvim_set_hl(0, "Normal", { bg = "#282828" })
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "OilDir", { fg = "#689d6a" })
 
 -- 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"html", "markdown","text","tex","typst"},
+  pattern = {"html", "markdown","text", "tex","typst"},
   callback = function()
     vim.opt_local.spell = true
   end,
 })
 -- grep
+vim.keymap.set("n", "<leader>g", function()
+  local query = vim.fn.input("Grep > ", vim.fn.expand("<cword>"))
+  if query == "" then return end
+
+  local cmd = "rg --vimgrep --smart-case --hidden --glob '!.git' --glob '!node_modules' "
+    .. vim.fn.shellescape(query)
+
+  local results = vim.fn.systemlist(cmd)
+
+  if vim.v.shell_error ~= 0 then
+    print("Ripgrep failed")
+    return
+  end
+
+  if #results == 0 then
+    print("No matches found")
+    return
+  end
+
+  vim.fn.setqflist({}, " ", {
+    title = "Grep: " .. query,
+    lines = results,
+    efm = "%f:%l:%c:%m",
+  })
+
+  vim.cmd("copen")
+end, { desc = "Ripgrep search" })
 
 -- buffer navigation
-vim.keymap.set('n', '<leader>bd', ':bd<CR>')
-vim.keymap.set('n', '<leader>bn', ':bn<CR>')
-vim.keymap.set('n', '<leader>bp', ':bp<CR>')
+vim.keymap.set('n', '<leader>bd', ':bd<CR>', {desc = "Buffer delete" })
 
 --format
 vim.keymap.set('n', '<leader>f', function()
@@ -89,10 +116,6 @@ vim.keymap.set('n', '<leader><F8>', ':term python3 %<CR>', { noremap = true, sil
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
 
--- disable default syntaxt highlight
-vim.cmd('syntax off')
-
-
 -- goto dec
 vim.keymap.set('n', "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {desc = "Open declaration"}, { silent = true, noremap = true})
 
@@ -105,6 +128,8 @@ vim.keymap.set("n", "<leader>dt", ":DBUIToggle<CR>", { desc = "Toggle DB UI" })
 
 vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_auto_executable_table_helpers = 1
+
+require("bufferline").setup{}
 
 require("nvim-highlight-colors").setup {
   render = 'virtual',
@@ -158,6 +183,24 @@ vim.lsp.enable('pyright')
 
 vim.lsp.config('lua_ls', {})
 vim.lsp.enable('lua_ls')
+
+vim.lsp.config('bashls', {})
+vim.lsp.enable('bashls')
+
+vim.lsp.config('bashls', {})
+vim.lsp.enable('bashls')
+
+vim.lsp.config('ts_ls', {})
+vim.lsp.enable('ts_ls')
+
+vim.lsp.config["tinymist"] = {
+  cmd = { "tinymist" },
+  filetypes = { "typst" },
+  settings = {
+  }
+}
+
+vim.lsp.enable('tinymist')
 
 local ts_parsers = {
   "bash",
@@ -219,6 +262,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-vim.lsp.enable('bashls')
-vim.lsp.enable('pyright')
-vim.lsp.enable({ "ts_ls", "astro" })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "oil://*",
+  callback = function()
+    local dir = require("oil").get_current_dir()
+    if dir then
+      vim.cmd("lcd " .. dir)
+    end
+  end,
+})
+
