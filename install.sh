@@ -21,6 +21,7 @@ CONFIGS=(
   swaybar
   tmux
   waybar
+  hypr
 
 )
 
