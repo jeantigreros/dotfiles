@@ -21,8 +21,8 @@ vim.pack.add {
   'https://github.com/lewis6991/gitsigns.nvim',
   'https://github.com/lukas-reineke/indent-blankline.nvim',
   'https://github.com/nvim-lualine/lualine.nvim',
-  'https://github.com/williamboman/mason.nvim',
-  'https://github.com/williamboman/mason-lspconfig.nvim',
+  -- 'https://github.com/williamboman/mason.nvim',
+  -- 'https://github.com/williamboman/mason-lspconfig.nvim',
 }
 
 vim.pack.add({
@@ -243,11 +243,8 @@ require("lualine").setup {
 -- LSP: MASON (auto-installs LSP servers)
 -- ========================================
 
-require("mason").setup()
-require("mason-lspconfig").setup {
-  ensure_installed = { "ts_ls", "pyright", "lua_ls", "bashls", "astro" },
-}
-vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
+-- require("mason").setup()
+-- vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 
 -- ========================================
 -- LSP: SERVER CONFIGS
@@ -274,6 +271,9 @@ vim.lsp.config['tinymist'] = {
   settings = {},
 }
 vim.lsp.enable('tinymist')
+
+vim.lsp.config('nixd', {})
+vim.lsp.enable('nixd')
 
 -- ========================================
 -- TREESITTER
