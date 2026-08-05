@@ -153,6 +153,29 @@ vim.keymap.set('n', '<leader>f;', function() require("fzf-lua").commands() end, 
 --   vim.lsp.buf.format()
 -- end, { desc = 'Format buffer' })
 
+-- special
+vim.keymap.set('n', "<C-c>", ":nohl<CR>", { desc = "Clear search highlighting", silent = true })
+
+vim.keymap.set('v', '>', ">gv", { desc = "Unindent and keep selection" })
+vim.keymap.set('v', '<', "<gv", { desc = "Indent and keep selection" })
+
+vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual selection "})
+vim.keymap.set('v', "K", ":m '>-2<CR>gv=gv", { desc = "moves lines up in visual selection "})
+
+-- git
+local gs = require("gitsigns")
+
+vim.keymap.set("n", "]h", gs.next_hunk, { desc = "Next hunk" })
+vim.keymap.set("n", "[h", gs.prev_hunk, { desc = "Previous hunk" })
+
+vim.keymap.set("n", "<leader>hs", gs.stage_hunk, { desc = "Stage hunk" })
+vim.keymap.set("v", "<leader>hs", function()
+  gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end, { desc = "Stage selection" })
+
+vim.keymap.set("n", "<leader>hr", gs.reset_hunk, { desc = "Reset hunk" })
+vim.keymap.set("n", "<leader>hp", gs.preview_hunk, { desc = "Preview hunk" })
+
 -- spell fix
 vim.api.nvim_set_keymap('i', '<C-l>', '<C-g>u<Esc>[s1z=`]a<C-g>u', { noremap = true, silent = true })
 
@@ -275,8 +298,27 @@ vim.lsp.enable('tinymist')
 vim.lsp.config('nixd', {})
 vim.lsp.enable('nixd')
 
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      },
+
+      check = {
+        command = 'clippy',
+      },
+
+      procMacro = {
+        enable = true,
+      },
+    },
+  },
+})
+
+vim.lsp.enable('rust_analyzer')
 -- ========================================
--- TREESITTER
+-- treesitter
 -- ========================================
 
 require("nvim-treesitter.config").setup {
@@ -305,7 +347,7 @@ require("treesitter-context").setup {
 }
 
 -- ========================================
--- COMPLETION (nvim-cmp)
+-- completion (nvim-cmp)
 -- ========================================
 
 local luasnip = require("luasnip")
@@ -323,10 +365,10 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<c-n>'] = cmp.mapping.select_next_item(),
+    ['<c-p>'] = cmp.mapping.select_prev_item(),
+    ['<cr>'] = cmp.mapping.confirm({ select = true }),
+    ['<c-space>'] = cmp.mapping.complete(),
   }),
   sources = {
     { name = 'nvim_lsp' },
