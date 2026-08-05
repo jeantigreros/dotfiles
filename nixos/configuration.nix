@@ -124,6 +124,7 @@
     bash-completion
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     nodejs_22
+    python3
 
     # nvim - lps 
     neovim
@@ -132,6 +133,7 @@
     lua-language-server
     typescript-language-server
     bash-language-server
+    pyright
 
     fzf
     papirus-icon-theme
