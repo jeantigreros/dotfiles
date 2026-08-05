@@ -55,9 +55,12 @@
   users.users."j" = {
     isNormalUser = true;
     description = "j";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
+
+  #docker 
+  virtualisation.docker.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -71,6 +74,7 @@
   };
   programs.git.prompt.enable = true;
   programs.dconf.enable = true;
+  programs.nix-ld.enable = true;
   programs.thunar = {
     enable = true;
     plugins = with pkgs; [
@@ -95,7 +99,7 @@
 
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd start-hyprland";
         user = "greeter";
       };
     };

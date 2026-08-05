@@ -37,7 +37,7 @@ echo "First time installing this dotfiles?"
 read -r -p "[y/N] " response
 response=${response,,}
 
-if [[ "$response" =~ ^(y|yes)$ ]]; then
+if [[ "$response" =~ ^(n|no)$ ]]; then
   backup=true
   mkdir -p "$BACKUP_DIR"
   echo "Backup directory created: $BACKUP_DIR"
