@@ -100,6 +100,10 @@ openports() {
   sudo lsof -i -P -n | grep LISTEN
 }
 
+pyvenv() {
+  source .venv/bin/activate
+}
+
 set completion-query-items 0
 
 # pnpm
@@ -121,3 +125,4 @@ export PATH=$JAVA_HOME/bin:$PATH
 export MOZ_ENABLE_WAYLAND=1
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:/home/j/.cargo/bin"
+export QTPATHS_ROOT="$HOME/.QT/"
