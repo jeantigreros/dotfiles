@@ -100,6 +100,14 @@ openports() {
   sudo lsof -i -P -n | grep LISTEN
 }
 
+ni () {
+  nvim ~/dotfiles/nixos/configuration.nix
+}
+
+nir () {
+  sudo nixos-rebuild switch
+}
+
 pyvenv() {
   source .venv/bin/activate
 }
