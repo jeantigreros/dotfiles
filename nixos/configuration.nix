@@ -148,6 +148,7 @@
     typst
     zathura
     tmux
+    mpv
 
     # utils
     wl-clipboard
