@@ -26,7 +26,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("mpris-proxy")
 
     -- Start shell
-    hl.exec_cmd("caelestia shell -d")
+    hl.exec_cmd("caelestia-shell -d")
 end)
 
 -- Resizer listeners
