@@ -105,7 +105,7 @@ ni () {
 }
 
 nir () {
-  sudo nixos-rebuild switch
+  sudo nixos-rebuild switch --flake ~/dotfiles/nixos/#nixos
 }
 
 pyvenv() {

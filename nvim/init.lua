@@ -21,6 +21,7 @@ vim.pack.add {
   'https://github.com/lewis6991/gitsigns.nvim',
   'https://github.com/lukas-reineke/indent-blankline.nvim',
   'https://github.com/nvim-lualine/lualine.nvim',
+  'https://github.com/NeogitOrg/neogit',
   -- 'https://github.com/williamboman/mason.nvim',
   -- 'https://github.com/williamboman/mason-lspconfig.nvim',
 }
@@ -201,8 +202,14 @@ vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { noremap = true, desc = 'Save' })
 vim.keymap.set('n', '<leader><F8>', '<cmd>term python3 %<CR>', { noremap = true, silent = true, desc = 'Run python' })
 
 -- diagnostic navigation
-vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "]g", function()
+  vim.diagnostic.jump({count = 1, float = true})
+end,
+  { desc = "Next diagnostic" })
+vim.keymap.set("n", "[g", function()
+  vim.diagnostic.jump({count = -1, float = true})
+end,
+{ desc = "Previous diagnostic" })
 
 -- go to definition / declaration
 vim.keymap.set('n', "gD", vim.lsp.buf.declaration, { desc = "Open declaration" })

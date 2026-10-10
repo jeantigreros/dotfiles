@@ -48,6 +48,22 @@
     variant = "intl";
   };
 
+
+  #tlp
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+
+      WIFI_PWR_ON_BAT = true;
+    };
+  };
+
+
   # Configure console keymap
   console.keyMap = "us-acentos";
 
@@ -128,9 +144,13 @@
     bash-completion
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     nodejs_22
+    pnpm
     python3
+    opencode
+    powertop
+    killall
 
-    # nvim - lps 
+    # nvim - lsp
     neovim
     tinymist
     nixd
@@ -138,9 +158,16 @@
     typescript-language-server
     bash-language-server
     pyright
+    tailwindcss-language-server
+    viu
+    chafa
+    ueberzugpp
+    tree-sitter
+    ripgrep
 
     fzf
     papirus-icon-theme
+    fastfetch
     xdg-utils
     nwg-look
     tokyonight-gtk-theme
@@ -149,6 +176,11 @@
     zathura
     tmux
     mpv
+    feh
+
+    #disk-utils
+    testdisk
+    ddrescue
 
     # utils
     wl-clipboard
