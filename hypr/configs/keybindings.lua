@@ -38,7 +38,7 @@ hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Set window float
-hl.bind(mainMod .. " + S", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
 
 -- Fullscreen - Window takes up the entire working space, keeping the margins.
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
@@ -60,7 +60,7 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 -- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun"))
 
 -- Toggle Split in dwindle mode
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Resize windows
 local resizeUnit = 20
