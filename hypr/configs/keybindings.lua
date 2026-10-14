@@ -1,11 +1,7 @@
 -- Variables
 local mainMod = "SUPER"
 local terminal = "kitty"
-local fileManager = "thunar"
-
--------------
--- Basic
--------------
+local fileManager = "dolphin"
 
 -- Open terminal
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
@@ -22,56 +18,66 @@ hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 -- Reload Config
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.reload_config())
 
--------------
--- Movement
--------------
+-- Focus directions
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "left" }))
 
--- Focus left
-hl.bind(mainMod .. " + L", hl.dsp.focus({
-  direction = "left"
-}))
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "right" }))
 
--- Focus right
-hl.bind(mainMod .. " + H", hl.dsp.focus({
-  direction = "right"
-}))
+hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 
--- Focus up
-hl.bind(mainMod .. " + K", hl.dsp.focus({
-  direction = "up"
-}))
+hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
--- Focus down
-hl.bind(mainMod .. " + J", hl.dsp.focus({
-  direction = "down"
-}))
+-- Move directions
+hl.bind(mainMod .. " + L", hl.dsp.move({ direction = "lemove" }))
 
+hl.bind(mainMod .. " + H", hl.dsp.move({ direction = "right" }))
 
--- Move left
-hl.bind(mainMod .. " + L", hl.dsp.move({
-  direction = "lemove"
-}))
+hl.bind(mainMod .. " + K", hl.dsp.move({ direction = "up" }))
 
--- Move right
-hl.bind(mainMod .. " + H", hl.dsp.move({
-  direction = "right"
-}))
+hl.bind(mainMod .. " + J", hl.dsp.move({ direction = "down" }))
 
--- Move up
-hl.bind(mainMod .. " + K", hl.dsp.move({
-  direction = "up"
-}))
+-- Set window float
+hl.bind(mainMod .. " + S", hl.dsp.window.float({ action = "toggle" }))
 
--- Move down
-hl.bind(mainMod .. " + J", hl.dsp.move({
-  direction = "down"
-}))
+-- Fullscreen - Window takes up the entire working space, keeping the margins.
+hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
--- Switch workspaces with mainMod and move active window to workspaces
+-- Fullscreen - Window takes up the entire screen.
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+
+-- Screenshot a monitor
+hl.bind("PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
+
+-- Screenshot a region
+hl.bind(mainMod .. " +  PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region")))
+
+-- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+
+-- Rofi / panel
+hl.bind(mainMod, hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("firefox"))
+
+-- Toggle Split in dwindle mode
+hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+
+-- Resize windows
+local resizeUnit = 20
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = resizeUnit, y = 0, relative=true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.resize({ x = -resizeUnit, y = 0, relative=true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -resizeUnit, relative=true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = resizeUnit, relative=true }), { repeating = true })
+
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+    -- Switch workspaces with mainMod + [0-9]
+    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+
+    -- Move window to a different workspace and switch to that workspace with mainMod + SHIFT + [0-9]
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    -- Move window to a different workspace but keep current workspace with mainMod + CTRL + [0-9]
+    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
@@ -86,5 +92,9 @@ hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_S
 hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
 
-
+-- Requires playerctl
+hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
