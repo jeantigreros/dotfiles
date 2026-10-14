@@ -2,6 +2,7 @@
 local mainMod = "SUPER"
 local terminal = "kitty"
 local fileManager = "dolphin"
+local ipc = "noctalia msg "
 
 -- Open terminal
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
@@ -16,7 +17,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 
 -- Reload Config
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.reload_config())
+-- hl.bind(mainMod .. " + SHIFT + R", hl.dsp.reload_config())
 
 -- Focus directions
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "left" }))
@@ -28,13 +29,13 @@ hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
 -- Move directions
-hl.bind(mainMod .. " + L", hl.dsp.move({ direction = "lemove" }))
+hl.bind(mainMod .. " + L", hl.dsp.window.move({ direction = "left" }))
 
-hl.bind(mainMod .. " + H", hl.dsp.move({ direction = "right" }))
+hl.bind(mainMod .. " + H", hl.dsp.window.move({ direction = "right" }))
 
-hl.bind(mainMod .. " + K", hl.dsp.move({ direction = "up" }))
+hl.bind(mainMod .. " + K", hl.dsp.window.move({ direction = "up" }))
 
-hl.bind(mainMod .. " + J", hl.dsp.move({ direction = "down" }))
+hl.bind(mainMod .. " + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Set window float
 hl.bind(mainMod .. " + S", hl.dsp.window.float({ action = "toggle" }))
@@ -50,7 +51,7 @@ hl.bind("PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
 
 -- Screenshot a region
 hl.bind(mainMod .. " +  PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region")))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 
 -- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
