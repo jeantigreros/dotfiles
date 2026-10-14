@@ -1,6 +1,6 @@
 -- Variables
 local mainMod = "SUPER"
-local terminal = "kitty"
+local terminal = "foot"
 local fileManager = "dolphin"
 local ipc = "noctalia msg "
 
@@ -20,22 +20,22 @@ hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 -- hl.bind(mainMod .. " + SHIFT + R", hl.dsp.reload_config())
 
 -- Focus directions
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
 -- Move directions
-hl.bind(mainMod .. " + L", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
 
-hl.bind(mainMod .. " + H", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
 
-hl.bind(mainMod .. " + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
 
-hl.bind(mainMod .. " + J", hl.dsp.window.move({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Set window float
 hl.bind(mainMod .. " + S", hl.dsp.window.float({ action = "toggle" }))
@@ -44,7 +44,7 @@ hl.bind(mainMod .. " + S", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 
 -- Fullscreen - Window takes up the entire screen.
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 
 -- Screenshot a monitor
 hl.bind("PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
@@ -56,9 +56,8 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 -- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 -- Rofi / panel
-hl.bind(mainMod, hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd("firefox"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+-- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun"))
 
 -- Toggle Split in dwindle mode
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
