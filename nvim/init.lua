@@ -52,7 +52,7 @@ vim.opt.linebreak = true
 vim.opt.statusline = '[%n] %<%f %h%w%m%r%=%-14.(%l,%c%V%) %P'
 vim.opt.spelllang = { 'en', 'es' }
 
-vim.cmd("colorscheme lackluster-hack")
+vim.cmd(" colorscheme catppuccin ")
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "OilDir", { fg = "#689d6a" })
 
@@ -61,6 +61,15 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "html", "markdown", "text", "tex", "typst" },
   callback = function()
     vim.opt_local.spell = true
+  end,
+})
+
+-- disable omnifunc for sql
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "sql",
+  callback = function()
+    vim.bo.omnifunc = ""
   end,
 })
 
@@ -324,6 +333,14 @@ vim.lsp.config('rust_analyzer', {
 })
 
 vim.lsp.enable('rust_analyzer')
+
+vim.lsp.config('tailwindcss', {
+  cmd = { 'tailwindcss-language-server', '--stdio' },
+  filetypes = { 'html', 'css', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'svelte', 'astro' },
+  root_markers = { 'tailwind.config.js', 'tailwind.config.ts', 'package.json' },
+})
+
+vim.lsp.enable('tailwindcss')
 -- ========================================
 -- treesitter
 -- ========================================
