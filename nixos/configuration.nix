@@ -100,6 +100,8 @@
     ];
   };
 
+  programs.mango.enable = true;
+
   programs.spicetify = {
     enable = true;
 
@@ -138,7 +140,6 @@
     wget
     quickshell
     caelestia-shell.packages.${pkgs.system}.with-cli
-    firefox-bin
     kitty
     btop
     bash-completion
