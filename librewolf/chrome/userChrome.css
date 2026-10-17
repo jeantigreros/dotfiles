@@ -1,0 +1,18 @@
+/* imports */
+@import url("ShyFox/shy-variables.css");
+@import url("ShyFox/wallust-imports.css");
+@import url("ShyFox/shy-global.css");
+@import url("ShyFox/shy-sidebar.css");
+@import url("ShyFox/shy-toolbar.css");
+@import url("ShyFox/shy-navbar.css");
+@import url("ShyFox/shy-findbar.css");
+@import url("ShyFox/shy-controls.css");
+@import url("ShyFox/shy-compact.css");
+@import url("ShyFox/shy-icons.css");
+@import url("ShyFox/shy-floating-search.css");
+
+/* Firefox Nova compatibility (FF 155+): neutralize overflow:clip and contain:paint that break fixed panels */
+:root, body { overflow: visible !important; }
+body { contain: none !important; }
+.chrome-block { border: none !important; overflow: visible !important; }
+#PersonalToolbar { border: none !important; }
