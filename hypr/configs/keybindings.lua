@@ -47,10 +47,9 @@ hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen({ mode = "maximized",
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 
 -- Screenshot a monitor
-hl.bind("PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-fullscreen pick"))
 
 -- Screenshot a region
-hl.bind(mainMod .. " +  PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
+hl.bind("PRINT", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 
 -- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -64,10 +63,10 @@ hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Resize windows
 local resizeUnit = 20
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = resizeUnit, y = 0, relative=true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.resize({ x = -resizeUnit, y = 0, relative=true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -resizeUnit, relative=true }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = resizeUnit, relative=true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + l", hl.dsp.window.resize({ x = resizeUnit, y = 0, relative=true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + h", hl.dsp.window.resize({ x = -resizeUnit, y = 0, relative=true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + k", hl.dsp.window.resize({ x = 0, y = -resizeUnit, relative=true }), { repeating = true })
+hl.bind(mainMod .. " + ALT + j", hl.dsp.window.resize({ x = 0, y = resizeUnit, relative=true }), { repeating = true })
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
@@ -75,9 +74,9 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
 
     -- Move window to a different workspace and switch to that workspace with mainMod + SHIFT + [0-9]
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = i }))
     -- Move window to a different workspace but keep current workspace with mainMod + CTRL + [0-9]
-    hl.bind(mainMod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
