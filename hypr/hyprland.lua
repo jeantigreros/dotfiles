@@ -74,7 +74,7 @@ hl.config({
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
 
-        layout = "dwindle",
+        layout = "scrolling",
     },
 
     decoration = {
@@ -182,17 +182,6 @@ hl.config({
         disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
-
------------------
-----  BINDS  ----
------------------
-
-hl.config({
-    binds = {
-        workspace_back_and_forth = true
-    },
-})
-
 
 ---------------
 ---- INPUT ----
