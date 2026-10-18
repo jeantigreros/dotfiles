@@ -22,7 +22,8 @@ CONFIGS=(
   tmux
   waybar
   hypr
-
+  noctalia
+  librewolf 
 )
 
 HOME_ITEMS=(

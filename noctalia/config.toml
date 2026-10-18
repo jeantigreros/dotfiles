@@ -1,0 +1,7 @@
+[shell.launcher.dmenu.entry.commands]
+command = "find \"$HOME/Videos\" -type f \\( -iname '*.mp4' -o -iname '*.mkv' -o -iname '*.mov' -o -iname '*.webm' -o -iname '*.avi' \\)"
+label = "Convert Video"
+prefix = "video"
+glyph = "terminal"
+global = false
+exec = 'CHOICE="{selection}"; OUTPUT="${CHOICE%.*}_converted.mp4"; ffmpeg -i "$CHOICE" -c:v libx264 -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2" -c:a aac "$OUTPUT" && xdg-open "$(dirname "$OUTPUT")"'

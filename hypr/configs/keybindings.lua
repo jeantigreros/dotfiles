@@ -54,7 +54,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 
 -- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
--- Rofi / panel
+-- Noctalia lanuncher | rofi
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
 -- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun"))
 
