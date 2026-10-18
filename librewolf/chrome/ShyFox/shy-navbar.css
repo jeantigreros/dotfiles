@@ -337,3 +337,9 @@ Navigation bar on top of the window
   
   #urlbar-background, #searchbar {background-color: var(--tb-col) !important;}
 }
+
+/* Keep URL/search bar visible on New Tab */
+#main-window:has(#tabbrowser-tabpanels .browserContainer) 
+  #nav-bar #urlbar {
+  visibility: visible !important;
+}
