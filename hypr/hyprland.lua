@@ -58,8 +58,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 3,
-        gaps_out = 10,
+        gaps_in  = 0,
+        gaps_out = 5,
 
         border_size = 2,
 
@@ -74,11 +74,11 @@ hl.config({
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
 
-        layout = "scrolling",
+        layout = "dwindle",
     },
 
     decoration = {
-        rounding       = 10,
+        rounding       = 1,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows

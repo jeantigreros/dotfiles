@@ -101,6 +101,10 @@
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "typst-preview.nvim": {
+      "rev": "1c2e19486397be1c580b560fc50ee36abe329c46",
+      "src": "https://github.com/chomosuke/typst-preview.nvim"
+    },
     "vim-dadbod": {
       "rev": "6d1d41da4873a445c5605f2005ad2c68c99d8770",
       "src": "https://github.com/tpope/vim-dadbod"
