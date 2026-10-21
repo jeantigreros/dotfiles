@@ -22,6 +22,7 @@ vim.pack.add {
   'https://github.com/lukas-reineke/indent-blankline.nvim',
   'https://github.com/nvim-lualine/lualine.nvim',
   'https://github.com/NeogitOrg/neogit',
+  'https://github.com/chomosuke/typst-preview.nvim',
   -- 'https://github.com/williamboman/mason.nvim',
   -- 'https://github.com/williamboman/mason-lspconfig.nvim',
 }
