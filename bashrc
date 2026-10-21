@@ -114,6 +114,17 @@ pyvenv() {
 
 set completion-query-items 0
 
+
+# shrink current pwd
+PROMPT_DIRTRIM=2
+
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+export PATH=$JAVA_HOME/bin:$PATH
+export MOZ_ENABLE_WAYLAND=1
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:/home/j/.cargo/bin"
+export QTPATHS_ROOT="$HOME/.QT/"
+
 # pnpm
 export PNPM_HOME="/home/j/.local/share/pnpm"
 case ":$PATH:" in
@@ -121,16 +132,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-# shrink current pwd
-PROMPT_DIRTRIM=2
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-export PATH=$JAVA_HOME/bin:$PATH
-export MOZ_ENABLE_WAYLAND=1
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-export PATH="$PATH:/home/j/.cargo/bin"
-export QTPATHS_ROOT="$HOME/.QT/"
