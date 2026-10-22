@@ -82,11 +82,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.o.signcolumn = "yes:1"
     vim.lsp.inlay_hint.enable(true, { bufnr = buf })
 
-    -- Enable built-in LSP completion with automatic popup
-    vim.lsp.completion.enable(true, args.data.client_id, buf, {
-      autotrigger = true,
-    })
-
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buf, desc = "Hover" })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = buf, desc = "Rename" })
     vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = buf, desc = "Code action" })
@@ -335,13 +330,16 @@ vim.lsp.config('rust_analyzer', {
 
 vim.lsp.enable('rust_analyzer')
 
-vim.lsp.config('tailwindcss', {
-  cmd = { 'tailwindcss-language-server', '--stdio' },
-  filetypes = { 'html', 'css', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'svelte', 'astro' },
-  root_markers = { 'tailwind.config.js', 'tailwind.config.ts', 'package.json' },
+-- Tailwind CSS
+vim.lsp.config("tailwindcss", {
+  cmd = { "pnpm", "exec", "tailwindcss-language-server", "--stdio", },
+  filetypes = { "astro", "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", },
+  root_markers = { "pnpm-lock.yaml", "tailwind.config.js", "tailwind.config.ts", "package.json", ".git",
+  },
 })
 
 vim.lsp.enable('tailwindcss')
+
 -- ========================================
 -- treesitter
 -- ========================================
@@ -375,12 +373,10 @@ require("treesitter-context").setup {
 -- completion (nvim-cmp)
 -- ========================================
 
-local luasnip = require("luasnip")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-cmp.setup.filetype({ 'sql', 'mysql', 'plsql' }, {
-  sources = {
-    { name = 'vim-dadbod-completion' },
-  },
+vim.lsp.config("*", {
+  capabilities = capabilities,
 })
 
 cmp.setup({
@@ -390,14 +386,15 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<c-n>'] = cmp.mapping.select_next_item(),
-    ['<c-p>'] = cmp.mapping.select_prev_item(),
-    ['<cr>'] = cmp.mapping.confirm({ select = true }),
-    ['<c-space>'] = cmp.mapping.complete(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
   }),
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "path" },
+    { name = "buffer" },
   },
 })
