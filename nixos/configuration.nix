@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, caelestia-shell, zen-browser, spicetify-nix, ... }:
+{ config, pkgs, spicetify-nix, ... }:
 
 {
   imports =
@@ -137,19 +137,24 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #utils
     wget
-    quickshell
-    caelestia-shell.packages.${pkgs.system}.with-cli
-    kitty
+    foot
     btop
     bash-completion
-    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    librewolf
     nodejs_22
     pnpm
     python3
     opencode
     powertop
+    brightnessctl
+    ddcutil
     killall
+    noctalia
+    fastfetch
+    xdg-utils
+    nwg-look
 
     # nvim - lsp
     neovim
@@ -165,12 +170,9 @@
     ueberzugpp
     tree-sitter
     ripgrep
-
     fzf
+
     papirus-icon-theme
-    fastfetch
-    xdg-utils
-    nwg-look
     tokyonight-gtk-theme
     pavucontrol
     typst
@@ -185,7 +187,6 @@
 
     # utils
     wl-clipboard
-
   ];
 	
   nix.settings.experimental-features = [
