@@ -89,3 +89,7 @@ fish_user_key_bindings
 export QT_QPA_PLATFORM=xcb
 
 export QT_QPA_PLATFORM=wayland
+
+if status is-interactive
+    atuin init fish | source
+end

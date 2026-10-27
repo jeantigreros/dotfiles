@@ -9,3 +9,5 @@ fi
 # qutebrowser bibtex download path
 export QUTE_BIB_FILEPATH="/home/j/org/unad/refs"
 
+
+. "$HOME/.atuin/bin/env"
