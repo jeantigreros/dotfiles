@@ -88,6 +88,19 @@ gga() {
   git add "$@"
 }
 
+ggfm() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    echo "Error: Not inside a Git repository."
+    return 1
+  }
+
+  echo "Fetching latest changes from origin..."
+  git fetch origin || return 1
+
+  echo "Merging origin/main into $(git branch --show-current)..."
+  git merge origin/main
+}
+
 untar() {
   if [ $# -eq 0 ];then
     echo "Usage: untar <files.tar.gz>"
