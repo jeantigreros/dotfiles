@@ -163,7 +163,7 @@
     powertop
     brightnessctl
     ddcutil
-    cc
+    gcc
     killall
     noctalia
     fastfetch
