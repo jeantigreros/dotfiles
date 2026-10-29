@@ -4,6 +4,13 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    sonora.url = "github:sonorahq/sonora";
+
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +20,9 @@
   outputs = {
     self,
     nixpkgs,
+    zen-browser,
     spicetify-nix,
+    sonora,
     ...
   }:
   let
@@ -24,6 +33,8 @@
 
       specialArgs = {
         inherit
+          zen-browser
+          sonora
           spicetify-nix;
       };
 

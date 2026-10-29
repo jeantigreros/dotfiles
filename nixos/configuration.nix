@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, spicetify-nix, ... }:
+{ config, pkgs, spicetify-nix, zen-browser, sonora, ... }:
 
 {
   imports =
@@ -48,6 +48,7 @@
     variant = "intl";
   };
 
+  services.gnome.gnome-keyring.enable = true;
 
   #tlp
   services.tlp = {
@@ -171,7 +172,6 @@
     tree-sitter
     ripgrep
     fzf
-    imagemagick
 
     papirus-icon-theme
     tokyonight-gtk-theme
@@ -181,6 +181,8 @@
     tmux
     mpv
     feh
+    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    sonora.packages.${pkgs.system}.default
 
     #disk-utils
     testdisk
