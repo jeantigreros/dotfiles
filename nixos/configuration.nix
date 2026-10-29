@@ -191,6 +191,7 @@
 
     # utils
     wl-clipboard
+    wl-screenrec
   ];
 	
   nix.settings.experimental-features = [
