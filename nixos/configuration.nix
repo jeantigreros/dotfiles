@@ -183,6 +183,7 @@
     feh
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     sonora.packages.${pkgs.system}.default
+    imagemagick
 
     #disk-utils
     testdisk
