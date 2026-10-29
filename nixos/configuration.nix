@@ -192,6 +192,8 @@
     # utils
     wl-clipboard
     wl-screenrec
+    slurp
+    ffmpeg
   ];
 	
   nix.settings.experimental-features = [
