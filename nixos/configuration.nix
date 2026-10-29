@@ -197,15 +197,12 @@
     sonora.packages.${pkgs.system}.default
     imagemagick
 
-    #disk-utils
-    testdisk
-    ddrescue
-
     # utils
     wl-clipboard
     wl-screenrec
     slurp
     ffmpeg
+    jq
   ];
 	
   nix.settings.experimental-features = [
