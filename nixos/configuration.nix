@@ -171,6 +171,7 @@
     tree-sitter
     ripgrep
     fzf
+    imagemagick
 
     papirus-icon-theme
     tokyonight-gtk-theme
