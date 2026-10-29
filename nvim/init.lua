@@ -42,7 +42,7 @@ vim.opt.relativenumber = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.completeopt = 'menu,menuone,fuzzy,noinsert'
+-- vim.opt.completeopt = 'menu,menuone,fuzzy,noinsert'
 vim.opt.confirm = true
 vim.opt.termguicolors = true
 vim.opt.wildoptions:append { 'fuzzy' }
