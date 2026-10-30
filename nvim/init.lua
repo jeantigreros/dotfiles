@@ -191,7 +191,9 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("bashls", {})
-vim.lsp.config("ts_ls", {})
+vim.lsp.config("ts_ls", {
+  cmd = { "typescript-langauge-server", "--stdio"},
+})
 vim.lsp.config("nixd", {})
 
 vim.lsp.config("tinymist", {
@@ -287,6 +289,15 @@ api.nvim_create_autocmd("LspAttach", {
 
     if vim.lsp.inlay_hint then
       vim.lsp.inlay_hint.enable(true, { bufnr = buf })
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client.id)
+    if client ~= nil and client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
     end
   end,
 })
