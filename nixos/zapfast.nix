@@ -8,7 +8,7 @@ pkgs.stdenv.mkDerivation rec {
     url = "https://github.com/crmne/zapfast/releases/download/v${version}/zapfast-v${version}-x86_64-unknown-linux-gnu.tar.gz";
 
     # Replace with the hash obtained in step 2.
-    hash = "sha256-18a32vka5ld4m28rq0jq3rdisph619xx5h9gk4chnknkz3r8ydjn";
+    hash = "sha256:18a32vka5ld4m28rq0jq3rdisph619xx5h9gk4chnknkz3r8ydjn";
   };
 
   nativeBuildInputs = [
