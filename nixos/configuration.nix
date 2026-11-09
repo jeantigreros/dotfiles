@@ -197,7 +197,6 @@
     zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     sonora.packages.${pkgs.system}.default
     imagemagick
-    (pkgs.callPackage ./zapfast.nix {})
 
     # utils
     wl-clipboard
